@@ -24,8 +24,8 @@ function searchYouTube() {
     // Create a new script element to load the YouTube API
     const script = document.createElement('script');
 
-    // Set the maxResults parameter to 72 to get 72 results
-    script.src = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=${searchInput}&maxResults=72&callback=handleResponse`;
+    // Set the maxResults parameter to 30 to get 30 results
+    script.src = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=${searchInput}&maxResults=30&callback=handleResponse`;
 
     document.body.appendChild(script);
 }
