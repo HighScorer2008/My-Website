@@ -270,3 +270,20 @@ footer {
     opacity: 0.9;
     border-color: #007BFF; /* Change border color on hover */
 }
+
+/* Add this CSS to your existing styles */
+
+/* View Counter */
+#view-counter {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
