@@ -25,7 +25,7 @@ function searchYouTube() {
     const script = document.createElement('script');
 
     // Set the maxResults parameter to 30 to get 30 results
-    script.src = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=${searchInput}&maxResults=30&callback=handleResponse`;
+    script.src = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=${searchInput}&maxResults=32&callback=handleResponse`;
 
     document.body.appendChild(script);
 }
