@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Search</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+<div id="datetime-container">
+    <span id="datetime"></span>
+</div>
+
+<div class="tabs">
+    
+    <button onclick="openTab('Home')">Home</button>
+    <a href="my_science_world.html" target="_blank"><button>My Physics World</button></a>
+    <a href="about_me.html" target="_blank"><button>About Me</button></a>
+    <button onclick="openNewTab()">New tab +</button> <!-- New tab button -->
+</div>
+
+<div id="Home" class="tabcontent">
+    <h1>YouTube Video Search</h1>
+
+    <div class="motivational-quote">
+        "The only way to do great work is to love what you do."
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Enter search keywords">
+        <button onclick="searchYouTube()">Search 🔍</button>
+    </div>
+
+    <!-- Section for Productive Links with a heading and smaller fonts -->
+    <div class="productive-links">
+        <span class="productive-links-heading">Productive Links:</span>
+        <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
+        <a href="https://www.aakash.ac.in" target="_blank">Aakash Byju's</a>
+        <a href="https://www.ncert.nic.in" target="_blank">NCERT</a>
+        <a href="https://learningcorner.epaper.thehindu.com/" target="_blank">The Hindu Learning Corner</a>
+        <a href="https://thehindu.com/" target="_blank">The Hindu 📖</a>
+        <a href="https://epaper.thehindu.com/" target="_blank">The Hindu Epaper 🗞️</a>
+    </div>
+
+    <!-- Search results container with a border -->
+    <div id="searchResults">
+        <!-- Search results will be displayed here -->
+    </div>
+</div>
+
+<footer>
+    &copy; 2023 R.M.Dharungopesh & Chat Gpt🧑‍💻. All rights reserved.
+</footer>
+
+<script src="script.js"></script></body>
+</html>
