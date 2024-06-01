@@ -82,3 +82,25 @@ function handleResponse(data) {
 function openNewTab() {
         window.open(window.location.href, '_blank');
     }
+
+// Add this JavaScript to your existing script.js or include it in a script tag in the HTML
+
+document.addEventListener('DOMContentLoaded', function() {
+    const viewCountElement = document.getElementById('view-count');
+    let viewCount = localStorage.getItem('viewCount') || 0;
+    viewCount++;
+    localStorage.setItem('viewCount', viewCount);
+    viewCountElement.textContent = viewCount;
+});
+
+function openTab(tabName) {
+    // Function to open a tab (implementation needed)
+}
+
+function openNewTab() {
+    // Function to open a new tab (implementation needed)
+}
+
+function searchYouTube() {
+    // Function to search YouTube (implementation needed)
+}
