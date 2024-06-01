@@ -4,52 +4,51 @@
     <title>YouTube Search</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-
 <body>
 <div id="datetime-container">
     <span id="datetime"></span>
 </div>
 
 <div class="tabs">
-    
     <button onclick="openTab('Home')">Home</button>
     <a href="my_science_world.html" target="_blank"><button>My Science World</button></a>
     <a href="about_me.html" target="_blank"><button>About Me</button></a>
     <button onclick="openNewTab()">New tab +</button> <!-- New tab button -->
 </div>
 
-    
-    <h1>YouTube Video Search</h1>
+<h1>YouTube Video Search</h1>
 
-    <div class="motivational-quote">
-        "The only way to do great work is to love what you do."
-    </div>
+<!-- View Counter -->
+<div id="view-counter">
+    Page views: <span id="view-count">0</span>
+</div>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Enter search keywords">
-        <button onclick="searchYouTube()">Search 🔍</button>
-    </div>
+<div class="motivational-quote">
+    "The only way to do great work is to love what you do."
+</div>
 
-    <!-- Section for Productive Links with a heading and smaller fonts -->
-    <div class="productive-links">
-        <span class="productive-links-heading">Productive Links:</span>
-        <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
-        <a href="https://www.ncert.nic.in" target="_blank">NCERT</a>
-        <a href="https://learningcorner.epaper.thehindu.com/" target="_blank">The Hindu Learning Corner</a>
-        <a href="https://thehindu.com/" target="_blank">The Hindu 📖</a>
-        <a href="https://epaper.thehindu.com/" target="_blank">The Hindu Epaper 🗞️</a>
-    </div>
-   <a href='https://www.free-counters.org/'>free Counters on Free-Counters.org</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=975638191c8fed61c3f9f02227f2b07cee108a23'></script>
-   <script type="text/javascript" src="https://freevisitorcounters.com/en/home/counter/1188145/t/11"></script>
-    <!-- Search results container with a border -->
-    <div id="searchResults">
-        <!-- Search results will be displayed here -->
-    </div>
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Enter search keywords">
+    <button onclick="searchYouTube()">Search 🔍</button>
+</div>
+
+<div class="productive-links">
+    <span class="productive-links-heading">Productive Links:</span>
+    <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
+    <a href="https://www.ncert.nic.in" target="_blank">NCERT</a>
+    <a href="https://learningcorner.epaper.thehindu.com/" target="_blank">The Hindu Learning Corner</a>
+    <a href="https://thehindu.com/" target="_blank">The Hindu 📖</a>
+    <a href="https://epaper.thehindu.com/" target="_blank">The Hindu Epaper 🗞️</a>
+</div>
+
+<div id="searchResults">
+    <!-- Search results will be displayed here -->
 </div>
 
 <footer>
     &copy; 2023 R.M.Dharungopesh & Chat Gpt🧑‍💻. All rights reserved.
 </footer>
 
-<script src="script.js"></script></body>
+<script src="script.js"></script>
+</body>
 </html>
