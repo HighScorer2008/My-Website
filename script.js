@@ -30,7 +30,7 @@ function openNewTab() {
 async function searchYouTube() {
     const searchInput = document.getElementById('searchInput').value;
     const searchResults = document.getElementById('searchResults');
-    const apiKey = 'AIzaSyB0kFtzqbuBldEKQHb8GQ34l5lD7KlpV60'; // Replace with your YouTube Data API key
+    const apiKey = 'YOUR_YOUTUBE_API_KEY'; // Replace with your YouTube Data API key
 
     console.log('Search input:', searchInput);
 
@@ -68,7 +68,7 @@ async function searchYouTube() {
                 <img src="${thumbnail}" alt="${title}">
                 <h3>${title}</h3>
                 <p class="description">${description}</p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="169" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             `;
 
             searchResults.appendChild(videoElement);
