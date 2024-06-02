@@ -23,8 +23,8 @@ function openTab(tabName) {
     // Function to open a tab (implementation needed)
 }
 
-function openNewTab() {
-    // Function to open a new tab (implementation needed)
+function openNewTab(url = 'about:blank') {
+    window.open(url, '_blank');
 }
 
 async function searchYouTube() {
