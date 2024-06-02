@@ -30,7 +30,7 @@ function openNewTab(url = 'about:blank') {
 async function searchYouTube() {
     const searchInput = document.getElementById('searchInput').value;
     const searchResults = document.getElementById('searchResults');
-    const apiKey = 'YOUR_YOUTUBE_API_KEY'; // Replace with your YouTube Data API key
+    const apiKey = 'AIzaSyB0kFtzqbuBldEKQHb8GQ34l5lD7KlpV60'; // Replace with your YouTube Data API key
 
     console.log('Search input:', searchInput);
 
