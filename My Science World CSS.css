@@ -67,6 +67,24 @@ button {
 button:hover {
     background-color: #005F6B;
 }
+
+/* New CSS for the red button */
+.red-button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    margin: 4px 2px;
+}
+
+.red-button:hover {
+    background-color: darkred;
+}
+
 /* Sticky Navigation Bar */
 nav {
     background-color: #0088FF;
@@ -76,6 +94,7 @@ nav {
     top: 0;
     z-index: 1000;
 }
+
 /* Animated Background for Header */
 @keyframes gradient {
     0% { background-position: 0% 50%; }
@@ -90,6 +109,7 @@ header {
     color: white;
     padding: 40px 0;
 }
+
 /* Interactive Cards for Content Sections */
 section {
     background-color: #fff;
@@ -205,6 +225,7 @@ section:hover {
     background-color: #333;
     color: #fff;
 }
+
 /* CSS for innovative font style */
 .quote {
     font-family: 'Roboto', sans-serif; /* Example font */
@@ -228,4 +249,3 @@ section:hover {
 body {
     background-color: #F9F9F9; /* Default background color */
 }
-
