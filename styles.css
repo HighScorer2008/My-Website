@@ -333,3 +333,8 @@ footer {
     font-weight: bold;
     text-align: center; /* Optional: Align the heading to the center */
 }
+
+.view-more {
+    color: #007BFF;
+    cursor: pointer;
+}
