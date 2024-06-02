@@ -30,7 +30,7 @@ function openNewTab() {
 async function searchYouTube() {
     const searchInput = document.getElementById('searchInput').value;
     const searchResults = document.getElementById('searchResults');
-    const apiKey = 'AIzaSyB0kFtzqbuBldEKQHb8GQ34l5lD7KlpV60'; // Replace with your YouTube Data API key
+    const apiKey = 'YOUR_NEW_YOUTUBE_API_KEY'; // Replace with your new YouTube Data API key
 
     console.log('Search input:', searchInput);
 
@@ -40,7 +40,16 @@ async function searchYouTube() {
     }
 
     try {
-        const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(searchInput)}&type=video&key=${apiKey}&maxResults=10`);
+        const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(searchInput)}&type=video&key=${apiKey}&maxResults=10`;
+        console.log('API Request URL:', url);
+
+        const response = await fetch(url);
+
+        // Check if the response is OK (status 200)
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
         
         console.log('API response:', data);
@@ -75,7 +84,7 @@ async function searchYouTube() {
             videoElement.innerHTML = `
                 <h3>Thumbnail</h3>
                 <img src="${thumbnail}" alt="${title}">
-                <h3>${title}</h3>
+                <h3 class="video-title">${title}</h3>
                 <p class="description">${shortDescription}${viewMore}</p>
                 <iframe width="300" height="169" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             `;
