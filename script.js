@@ -96,3 +96,26 @@ async function searchYouTube() {
         searchResults.innerHTML = '<p>There was an error fetching the search results. Please try again later.</p>';
     }
 }
+
+// Function to play video in a popup
+function playVideo(videoId) {
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}`;
+    iframe.width = "560";
+    iframe.height = "315";
+    iframe.allowFullscreen = true;
+    modal.appendChild(iframe);
+
+    // Append the modal to the body
+    document.body.appendChild(modal);
+
+    // Close the modal when the user clicks outside of it
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.remove();
+        }
+    });
+}
