@@ -23,14 +23,14 @@ function openTab(tabName) {
     // Function to open a tab (implementation needed)
 }
 
-function openNewTab(url = 'about:blank') {
-    window.open(url, '_blank');
+function openNewTab() {
+    // Function to open a new tab (implementation needed)
 }
 
 async function searchYouTube() {
     const searchInput = document.getElementById('searchInput').value;
     const searchResults = document.getElementById('searchResults');
-    const apiKey = 'AIzaSyB0kFtzqbuBldEKQHb8GQ34l5lD7KlpV60'; // Replace with your YouTube Data API key
+    const apiKey = 'YOUR_YOUTUBE_API_KEY'; // Replace with your YouTube Data API key
 
     console.log('Search input:', searchInput);
 
@@ -65,6 +65,7 @@ async function searchYouTube() {
             videoElement.classList.add('video-result');
 
             videoElement.innerHTML = `
+                <h3>Thumbnail</h3>
                 <img src="${thumbnail}" alt="${title}">
                 <h3>${title}</h3>
                 <p class="description">${description}</p>
