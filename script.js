@@ -64,11 +64,14 @@ async function searchYouTube() {
             const videoElement = document.createElement('div');
             videoElement.classList.add('video-result');
 
+            const shortDescription = description.length > 100 ? description.substring(0, 100) + '...' : description;
+
             videoElement.innerHTML = `
                 <h3>Thumbnail</h3>
                 <img src="${thumbnail}" alt="${title}">
                 <h3>${title}</h3>
-                <p class="description">${description}</p>
+                <p class="description">${shortDescription}</p>
+                <button class="view-more" onclick="toggleDescription(this, '${description}')">View More</button>
                 <iframe width="300" height="169" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             `;
 
@@ -78,4 +81,12 @@ async function searchYouTube() {
         console.error('Error fetching YouTube data:', error);
         searchResults.innerHTML = '<p>There was an error fetching the search results. Please try again later.</p>';
     }
+}
+
+function toggleDescription(button, fullDescription) {
+    const descriptionElement = button.previousElementSibling;
+    const isExpanded = button.textContent === 'View Less';
+
+    descriptionElement.textContent = isExpanded ? fullDescription.substring(0, 100) + '...' : fullDescription;
+    button.textContent = isExpanded ? 'View More' : 'View Less';
 }
