@@ -68,7 +68,7 @@ async function searchYouTube() {
                 <img src="${thumbnail}" alt="${title}">
                 <h3>${title}</h3>
                 <p class="description">${description}</p>
-                <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">Watch on YouTube</a>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             `;
 
             searchResults.appendChild(videoElement);
