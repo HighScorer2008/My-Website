@@ -106,11 +106,14 @@ function showMore(element) {
 }
 
 function openVideo(videoId) {
-    const modal = document.getElementById('videoModal');
-    const videoFrame = document.getElementById('videoFrame');
-    videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
-    modal.style.display = 'block';
+    const newWindow = window.open(`https://www.youtube.com/embed/${videoId}`, '_blank', 'width=560,height=315');
+    if (newWindow) {
+        newWindow.focus();
+    } else {
+        alert('Your browser blocked the video popup. Please check your browser settings.');
+    }
 }
+
 
 function closeVideoModal() {
     const modal = document.getElementById('videoModal');
