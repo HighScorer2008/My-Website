@@ -15,14 +15,45 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setInterval(updateClock, 1000);
   updateClock();
+
+  // Initialize Google Sign-In
+  initGoogleSignIn();
 });
 
-function openTab(tabName) {
-  // Implement tab opening logic here
+// Function to initialize Google Sign-In
+function initGoogleSignIn() {
+  gapi.load('auth2', function() {
+    auth2 = gapi.auth2.init({
+      client_id: '91688335727-pjd58hv414s20092ekslgect9hkh811d.apps.googleusercontent.com',
+      cookiepolicy: 'single_host_origin',
+      scope: 'profile email'
+    });
+    attachSignin(document.getElementById('g_id_signin'));
+  });
 }
 
-function openNewTab(url) {
-  window.open(url, '_blank');
+// Function to attach sign-in event handler to the Google Sign-In button
+function attachSignin(element) {
+  auth2.attachClickHandler(element, {},
+    function(googleUser) {
+      onSignIn(googleUser);
+    }, function(error) {
+      console.error('Sign-in error: ' + error);
+    });
+}
+
+// Function to handle sign-in
+function onSignIn(googleUser) {
+  const profile = googleUser.getBasicProfile();
+  document.getElementById('profilePicContainer').innerHTML = `<img src="${profile.getImageUrl()}" alt="Profile Picture">`;
+}
+
+// Function to handle sign-out
+function signOut() {
+  const auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(() => {
+    document.getElementById('profilePicContainer').innerHTML = '';
+  });
 }
 
 async function searchYouTube() {
@@ -91,16 +122,4 @@ function closeVideoModal() {
   const videoFrame = document.getElementById('videoFrame');
   modal.style.display = 'none';
   videoFrame.src = '';
-}
-
-function onSignIn(googleUser) {
-  const profile = googleUser.getBasicProfile();
-  document.getElementById('profilePicContainer').innerHTML = `<img src="${profile.getImageUrl()}" alt="Profile Picture">`;
-}
-
-function signOut() {
-  const auth2 = gapi.auth2.getAuthInstance();
-  auth2.signOut().then(() => {
-    document.getElementById('profilePicContainer').innerHTML = '';
-  });
 }
