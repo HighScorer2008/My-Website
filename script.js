@@ -30,7 +30,7 @@ function openNewTab() {
 async function searchYouTube() {
     const searchInput = document.getElementById('searchInput').value;
     const searchResults = document.getElementById('searchResults');
-    const apiKey = 'AIzaSyB0kFtzqbuBldEKQHb8GQ34l5lD7KlpV60'; // Replace with your YouTube Data API key
+    const apiKey = 'AIzaSyB0kFtzqbuBldEKQHb8GQ34l5lD7KlpV60'; // Replace with your new YouTube Data API key
 
     console.log('Search input:', searchInput);
 
@@ -68,6 +68,7 @@ async function searchYouTube() {
             const videoId = item.id.videoId;
             const title = item.snippet.title;
             const description = item.snippet.description;
+            const thumbnail = item.snippet.thumbnails.default.url;
 
             const videoElement = document.createElement('div');
             videoElement.classList.add('video-result');
@@ -82,10 +83,9 @@ async function searchYouTube() {
 
             videoElement.innerHTML = `
                 <h3 class="video-title">${title}</h3>
+                <img src="${thumbnail}" alt="${title}">
                 <p class="description">${shortDescription}${viewMore}</p>
-                <div class="play-button" onclick="playVideo('${videoId}')">
-                    <button>Play Video</button>
-                </div>
+                <button onclick="openModal('${videoId}')">Play Video</button>
             `;
 
             searchResults.appendChild(videoElement);
@@ -96,45 +96,40 @@ async function searchYouTube() {
     }
 }
 
-// Function to play video in a popup
-function playVideo(videoId) {
-    const modal = document.createElement('div');
-    modal.classList.add('modal');
-
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube.com/embed/${videoId}`;
-    iframe.width = "560";
-    iframe.height = "315";
-    iframe.allowFullscreen = true;
-    modal.appendChild(iframe);
-
-    // Append the modal to the body
-    document.body.appendChild(modal);
-
-    // Close the modal when the user clicks outside of it
-    modal.addEventListener('click', function() {
-        document.body.removeChild(modal);
-    });
-}
-
-// Google Sign-In callback
+// Google Sign-In
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
-    console.log("ID: " + profile.getId());
-    console.log('Full Name: ' + profile.getName());
-    console.log('Given Name: ' + profile.getGivenName());
-    console.log('Family Name: ' + profile.getFamilyName());
-    console.log("Image URL: " + profile.getImageUrl());
-    console.log("Email: " + profile.getEmail());
-
-    var id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
+    console.log('ID: ' + profile.getId());
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail());
+    document.querySelector('.signout-button').style.display = 'block';
 }
 
-// Google Sign-Out
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         console.log('User signed out.');
+        document.querySelector('.signout-button').style.display = 'none';
     });
+}
+
+// Modal functions
+function openModal(videoId) {
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    modal.innerHTML = `
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal(this)">×</button>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    modal.style.display = 'flex';
+}
+
+function closeModal(button) {
+    const modal = button.parentElement.parentElement;
+    modal.style.display = 'none';
+    document.body.removeChild(modal);
 }
