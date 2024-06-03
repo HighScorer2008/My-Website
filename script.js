@@ -104,14 +104,17 @@ function showMore(element) {
     }
 }
 
-function openVideo(videoId, title) {
+function openVideo(videoId, title, description) {
     const modal = document.getElementById('videoModal');
     const videoFrame = document.getElementById('videoFrame');
     const videoTitle = document.getElementById('videoTitle');
+    const videoDescription = document.getElementById('videoDescription'); // New line
     videoTitle.textContent = title;
+    videoDescription.textContent = description; // New line
     videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
     modal.style.display = 'block';
 }
+
 
 function closeVideoModal() {
     const modal = document.getElementById('videoModal');
