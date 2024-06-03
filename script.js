@@ -40,7 +40,11 @@ async function searchYouTube() {
     const response = await fetch(url);
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      if (response.status === 403) {
+        throw new Error('API quota exceeded or API key invalid.');
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
     }
 
     const data = await response.json();
@@ -57,37 +61,16 @@ async function searchYouTube() {
       const description = item.snippet.description;
 
       const videoElement = document.createElement('div');
-      videoElement.classList.add('video-result');
-
-      let shortDescription = description;
-      let viewMore = '';
-      if (description.length > 100) {
-        shortDescription = description.slice(0, 100);
-        viewMore = `<span class="read-more" onclick="showMore(this)">...<span class="show-more"> Read more</span></span>`;
-      }
-
+      videoElement.className = 'video-result';
       videoElement.innerHTML = `
         <h3>${title}</h3>
-        <button onclick="openVideo('${videoId}', '${title}', \`${description}\`)">Play Video</button>
-        <div class="description">${shortDescription}${viewMore}</div>
+        <button onclick="openVideo('${videoId}', '${title}', '${description}')">Watch Video</button>
       `;
       searchResults.appendChild(videoElement);
     });
   } catch (error) {
-    console.error('Error fetching data:', error);
-    alert('Failed to fetch data. Please try again later.');
-  }
-}
-
-function showMore(element) {
-  const showMoreSpan = element.querySelector('.show-more');
-  const description = element.parentElement;
-  if (showMoreSpan.textContent.trim() === 'Read more') {
-    description.classList.add('expanded');
-    showMoreSpan.textContent = ' Show less';
-  } else {
-    description.classList.remove('expanded');
-    showMoreSpan.textContent = ' Read more';
+    console.error('Error fetching YouTube data:', error);
+    alert(error.message);
   }
 }
 
@@ -96,6 +79,7 @@ function openVideo(videoId, title, description) {
   const videoFrame = document.getElementById('videoFrame');
   const videoTitle = document.getElementById('videoTitle');
   const videoDescription = document.getElementById('videoDescription');
+
   videoTitle.textContent = title;
   videoDescription.textContent = description;
   videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
@@ -105,26 +89,18 @@ function openVideo(videoId, title, description) {
 function closeVideoModal() {
   const modal = document.getElementById('videoModal');
   const videoFrame = document.getElementById('videoFrame');
-  videoFrame.src = '';
   modal.style.display = 'none';
+  videoFrame.src = '';
 }
 
 function onSignIn(googleUser) {
   const profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId());
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail());
-
-  const profilePicContainer = document.getElementById('profilePicContainer');
-  profilePicContainer.innerHTML = `<img src="${profile.getImageUrl()}" alt="Profile Picture">`;
+  document.getElementById('profilePicContainer').innerHTML = `<img src="${profile.getImageUrl()}" alt="Profile Picture">`;
 }
 
 function signOut() {
   const auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(() => {
-    console.log('User signed out.');
-    const profilePicContainer = document.getElementById('profilePicContainer');
-    profilePicContainer.innerHTML = '';
+    document.getElementById('profilePicContainer').innerHTML = '';
   });
 }
