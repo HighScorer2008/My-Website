@@ -11,14 +11,15 @@
     <span class="time-label">Time:</span> <span id="datetime"></span>
   </div>
 
-  <div id="videoModal" class="modal">
+ <div id="videoModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeVideoModal()">&times;</span>
-      <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
-      <h2 id="videoTitle"></h2>
-      <p id="videoDescription"></p>
+        <span class="close">&times;</span>
+        <h2 id="videoTitle" class="video-title"></h2> <!-- Title of the video -->
+        <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe> <!-- Video iframe -->
+        <p id="videoDescription" class="video-description"></p> <!-- Description of the video -->
     </div>
-  </div>
+</div>
+
 
   <div class="tabs">
     <button onclick="openTab('Home')">Home</button>
