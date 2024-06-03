@@ -121,5 +121,5 @@ function closeVideoModal() {
   const modal = document.getElementById('videoModal');
   const videoFrame = document.getElementById('videoFrame');
   modal.style.display = 'none';
-  videoFrame.src = '';
+  videoFrame.src = ''; // Resetting the video frame source
 }
