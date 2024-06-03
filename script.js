@@ -105,12 +105,15 @@ function showMore(element) {
     }
 }
 
-function openVideo(videoId) {
+function openVideo(videoId, title) {
     const modal = document.getElementById('videoModal');
     const videoFrame = document.getElementById('videoFrame');
+    const videoTitle = document.getElementById('videoTitle');
+    videoTitle.textContent = title;
     videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
     modal.style.display = 'block';
 }
+
 
 function closeVideoModal() {
     const modal = document.getElementById('videoModal');
