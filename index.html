@@ -10,6 +10,14 @@
     <span class="time-label">Time:</span> <span id="datetime"></span>
 </div>
 
+<!-- Add a modal for displaying YouTube videos -->
+<div id="videoModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
 <div class="tabs">
     <button onclick="openTab('Home')">Home</button>
     <button onclick="openNewTab('my_science_world.html')">My Science World</button>
@@ -33,9 +41,11 @@
     <button onclick="searchYouTube()">Search 🔍</button>
 </div>
 
+<!-- Modify the Google Sign-In button to include a container for the profile picture -->
 <div class="signin-container">
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    <button class="signout-button" onclick="signOut();">Sign out</button>
+  <div id="profilePicContainer"></div>
+  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+  <button class="signout-button" onclick="signOut();">Sign out</button>
 </div>
 
 <div class="productive-links">
