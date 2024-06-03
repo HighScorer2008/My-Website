@@ -68,7 +68,6 @@ async function searchYouTube() {
             const videoId = item.id.videoId;
             const title = item.snippet.title;
             const description = item.snippet.description;
-            const thumbnail = item.snippet.thumbnails.default.url;
 
             const videoElement = document.createElement('div');
             videoElement.classList.add('video-result');
@@ -77,59 +76,31 @@ async function searchYouTube() {
             let shortDescription = description;
             let viewMore = '';
             if (description.length > 100) {
-                shortDescription = description.slice(0, 100) + '...';
-                viewMore = `<span class="view-more" onclick="this.previousSibling.textContent = '${description}'; this.style.display='none';">View More</span>`;
+                shortDescription = description.slice(0, 100);
+                viewMore = `<span class="read-more" onclick="showMore(this)">...<span class="show-more"> Read more</span></span>`;
             }
 
             videoElement.innerHTML = `
-                <h3 class="video-title">${title}</h3>
-                <img src="${thumbnail}" alt="${title}">
-                <p class="description">${shortDescription}${viewMore}</p>
-                <button onclick="openModal('${videoId}')">Play Video</button>
+                <h3>${title}</h3>
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+                <div class="description">${shortDescription}${viewMore}</div>
             `;
-
             searchResults.appendChild(videoElement);
         });
     } catch (error) {
-        console.error('Error fetching YouTube data:', error);
-        searchResults.innerHTML = '<p>There was an error fetching the search results. Please try again later.</p>';
+        console.error('Error fetching data:', error);
+        alert('Failed to fetch data. Please try again later.');
     }
 }
 
-// Google Sign-In
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId());
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail());
-    document.querySelector('.signout-button').style.display = 'block';
-}
-
-function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-        console.log('User signed out.');
-        document.querySelector('.signout-button').style.display = 'none';
-    });
-}
-
-// Modal functions
-function openModal(videoId) {
-    const modal = document.createElement('div');
-    modal.classList.add('modal');
-    modal.innerHTML = `
-        <div class="modal-content">
-            <button class="close-button" onclick="closeModal(this)">×</button>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    `;
-    document.body.appendChild(modal);
-    modal.style.display = 'flex';
-}
-
-function closeModal(button) {
-    const modal = button.parentElement.parentElement;
-    modal.style.display = 'none';
-    document.body.removeChild(modal);
+function showMore(element) {
+    const showMoreSpan = element.querySelector('.show-more');
+    const description = element.parentElement;
+    if (showMoreSpan.textContent.trim() === 'Read more') {
+        description.classList.add('expanded');
+        showMoreSpan.textContent = ' Show less';
+    } else {
+        description.classList.remove('expanded');
+        showMoreSpan.textContent = ' Read more';
+    }
 }
