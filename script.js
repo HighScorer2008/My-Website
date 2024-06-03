@@ -1,12 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // View Counter
   const viewCountElement = document.getElementById('view-count');
   let viewCount = parseInt(localStorage.getItem('viewCount')) || 0;
   viewCount++;
   localStorage.setItem('viewCount', viewCount);
   viewCountElement.textContent = viewCount;
 
-  // Clock
   function updateClock() {
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
@@ -20,17 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function openTab(tabName) {
-  // Function to open a tab (implementation needed)
+  // Implement tab opening logic here
 }
 
-function openNewTab() {
-  // Function to open a new tab (implementation needed)
+function openNewTab(url) {
+  window.open(url, '_blank');
 }
 
 async function searchYouTube() {
   const searchInput = document.getElementById('searchInput').value;
   const searchResults = document.getElementById('searchResults');
-  const apiKey = 'YOUR_API_KEY'; // Replace with your YouTube Data API key
+  const apiKey = 'AIzaSyB0kFtzqbuBldEKQHb8GQ34l5lD7KlpV60';
 
   if (searchInput.trim() === '') {
     alert('Please enter search keywords');
@@ -46,7 +44,6 @@ async function searchYouTube() {
     }
 
     const data = await response.json();
-
     searchResults.innerHTML = '';
 
     if (data.items.length === 0) {
@@ -71,7 +68,7 @@ async function searchYouTube() {
 
       videoElement.innerHTML = `
         <h3>${title}</h3>
-        <button onclick="openVideo('${videoId}', '${title}', '${description}')">Play Video</button>
+        <button onclick="openVideo('${videoId}', '${title}', \`${description}\`)">Play Video</button>
         <div class="description">${shortDescription}${viewMore}</div>
       `;
       searchResults.appendChild(videoElement);
@@ -130,110 +127,4 @@ function signOut() {
     const profilePicContainer = document.getElementById('profilePicContainer');
     profilePicContainer.innerHTML = '';
   });
-}
-/* styles.css */
-body {
-  font-family: Arial, sans-serif;
-}
-
-#datetime-container {
-  margin-bottom: 20px;
-}
-
-.tabs {
-  margin-bottom: 20px;
-}
-
-button {
-  margin-right: 10px;
-  padding: 10px;
-}
-
-h1 {
-  margin-bottom: 20px;
-}
-
-.search-container {
-  margin-bottom: 20px;
-}
-
-#view-counter {
-  margin-bottom: 20px;
-}
-
-.motivational-quote {
-  font-size: 1.5em;
-  margin-bottom: 20px;
-}
-
-.signin-container {
-  margin-bottom: 20px;
-}
-
-.productive-links {
-  margin-bottom: 20px;
-}
-
-#searchResults .video-result {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 60%;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.description {
-  margin-top: 10px;
-}
-
-.read-more {
-  cursor: pointer;
-  color: blue;
-}
-
-.read-more .show-more {
-  font-weight: bold;
-}
-
-.description.expanded {
-  white-space: normal;
-}
-
-footer {
-  margin-top: 20px;
-  padding: 10px;
-  background-color: #f1f1f1;
-  text-align: center;
 }
