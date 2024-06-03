@@ -68,7 +68,6 @@ async function searchYouTube() {
             const videoId = item.id.videoId;
             const title = item.snippet.title;
             const description = item.snippet.description;
-            const thumbnail = item.snippet.thumbnails.default.url;
 
             const videoElement = document.createElement('div');
             videoElement.classList.add('video-result');
@@ -82,11 +81,11 @@ async function searchYouTube() {
             }
 
             videoElement.innerHTML = `
-                <h3>Thumbnail</h3>
-                <img src="${thumbnail}" alt="${title}">
                 <h3 class="video-title">${title}</h3>
                 <p class="description">${shortDescription}${viewMore}</p>
-                <iframe width="300" height="169" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="play-button" onclick="playVideo('${videoId}')">
+                    <button>Play Video</button>
+                </div>
             `;
 
             searchResults.appendChild(videoElement);
