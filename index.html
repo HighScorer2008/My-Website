@@ -1,75 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>YouTube Search</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <meta name="google-signin-client_id" content="91688335727-pjd58hv414s20092ekslgect9hkh811d.apps.googleusercontent.com">
+  <title>YouTube Search</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta name="google-signin-client_id" content="91688335727-pjd58hv414s20092ekslgect9hkh811d.apps.googleusercontent.com">
 </head>
 <body>
-    <div id="datetime-container">
-        <span class="time-label">Time:</span> <span id="datetime"></span>
-    </div>
+  <div id="datetime-container">
+    <span class="time-label">Time:</span> <span id="datetime"></span>
+  </div>
 
-    <!-- Add a modal for displaying YouTube videos -->
-   <div id="videoModal" class="modal">
+  <!-- Add a modal for displaying YouTube videos -->
+  <div id="videoModal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeVideoModal()">&times;</span>
-        <h2 id="videoTitle"></h2>
-        <p id="videoDescription"></p>
-        <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+      <span class="close" onclick="closeVideoModal()">&times;</span>
+      <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+      <h2 id="videoTitle"></h2>
+      <p id="videoDescription"></p>
     </div>
-</div>
+  </div>
 
+  <div class="tabs">
+    <button onclick="openTab('Home')">Home</button>
+    <button onclick="openNewTab('my_science_world.html')">My Science World</button>
+    <button onclick="openNewTab('about_me.html')">About Me</button>
+    <button onclick="openNewTab('index.html')">New tab +</button> <!-- New tab button -->
+  </div>
 
-    <div class="tabs">
-        <button onclick="openTab('Home')">Home</button>
-        <button onclick="openNewTab('my_science_world.html')">My Science World</button>
-        <button onclick="openNewTab('about_me.html')">About Me</button>
-        <button onclick="openNewTab('index.html')">New tab +</button> <!-- New tab button -->
+  <h1>YouTube Video Search</h1>
+
+  <!-- View Counter -->
+  <div id="view-counter">
+    Page views: <span id="view-count">0</span>
+  </div>
+
+  <div class="motivational-quote">
+    "The only way to do great work is to love what you do."
+  </div>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Enter search keywords">
+    <button onclick="searchYouTube()">Search 🔍</button>
+  </div>
+
+  <!-- Modify the Google Sign-In button to include a container for the profile picture -->
+  <div class="signin-container">
+    <div id="profilePicContainer"></div>
+    <div id="g_id_onload"
+         data-client_id="YOUR_CLIENT_ID.apps.googleusercontent.com"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="onSignIn"
+         data-auto_select="true"
+         data-itp_support="true">
     </div>
+    <div class="g_id_signin" data-type="standard"></div>
+    <button class="signout-button" onclick="signOut();">Sign out</button>
+  </div>
 
-    <h1>YouTube Video Search</h1>
+  <div class="productive-links">
+    <span class="productive-links-heading">Productive Links:</span>
+    <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
+    <a href="https://www.ncert.nic.in" target="_blank">NCERT</a>
+    <a href="https://learningcorner.epaper.thehindu.com/" target="_blank">The Hindu Learning Corner</a>
+    <a href="https://thehindu.com/" target="_blank">The Hindu 📖</a>
+    <a href="https://epaper.thehindu.com/" target="_blank">The Hindu Epaper 🗞️</a>
+  </div>
 
-    <!-- View Counter -->
-    <div id="view-counter">
-        Page views: <span id="view-count">0</span>
-    </div>
+  <div id="searchResults">
+    <!-- Search results will be displayed here -->
+  </div>
 
-    <div class="motivational-quote">
-        "The only way to do great work is to love what you do."
-    </div>
+  <footer>
+    &copy; 2023 R.M.Dharungopesh & Chat Gpt🧑‍💻. All rights reserved.
+  </footer>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Enter search keywords">
-        <button onclick="searchYouTube()">Search 🔍</button>
-    </div>
-
-    <!-- Modify the Google Sign-In button to include a container for the profile picture -->
-    <div class="signin-container">
-        <div id="profilePicContainer"></div>
-        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-        <button class="signout-button" onclick="signOut();">Sign out</button>
-    </div>
-
-    <div class="productive-links">
-        <span class="productive-links-heading">Productive Links:</span>
-        <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
-        <a href="https://www.ncert.nic.in" target="_blank">NCERT</a>
-        <a href="https://learningcorner.epaper.thehindu.com/" target="_blank">The Hindu Learning Corner</a>
-        <a href="https://thehindu.com/" target="_blank">The Hindu 📖</a>
-        <a href="https://epaper.thehindu.com/" target="_blank">The Hindu Epaper 🗞️</a>
-    </div>
-
-    <div id="searchResults">
-        <!-- Search results will be displayed here -->
-    </div>
-
-    <footer>
-        &copy; 2023 R.M.Dharungopesh & Chat Gpt🧑‍💻. All rights reserved.
-    </footer>
-
-    <!-- Add the Google Sign-In library -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="script.js"></script>
+  <!-- Add the Google Identity Services library -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
