@@ -12,19 +12,13 @@ body {
 }
 
 h1 {
-    text-align: center;
-    background-color: #ff0000;
-    color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
+  text-align: center;
+  background-color: #ff0000;
+  color: #fff;
+  padding: 20px;
+  margin-bottom: 0; /* Change margin-bottom to 0 */
 }
 
-/* Add the following CSS to improve the popup video container's resolution */
-.modal-content iframe {
-    border-radius: 8px;
-    width: 100%; /* Adjust width to fill the container */
-    height: 100%; /* Adjust height to fill the container */
-}
 
 #youtube-logo {
     width: 100px;
