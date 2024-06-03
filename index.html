@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>YouTube Search</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <meta name="google-signin-client_id" content="91688335727-pjd58hv414s20092ekslgect9hkh811d.apps.googleusercontent.com">
@@ -10,7 +11,6 @@
     <span class="time-label">Time:</span> <span id="datetime"></span>
   </div>
 
-  <!-- Add a modal for displaying YouTube videos -->
   <div id="videoModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeVideoModal()">&times;</span>
@@ -29,7 +29,6 @@
 
   <h1>YouTube Video Search</h1>
 
-  <!-- View Counter -->
   <div id="view-counter">
     Page views: <span id="view-count">0</span>
   </div>
@@ -43,7 +42,6 @@
     <button onclick="searchYouTube()">Search 🔍</button>
   </div>
 
-  <!-- Modify the Google Sign-In button to include a container for the profile picture -->
   <div class="signin-container">
     <div id="profilePicContainer"></div>
     <div id="g_id_onload"
@@ -75,7 +73,6 @@
     &copy; 2023 R.M.Dharungopesh & Chat Gpt🧑‍💻. All rights reserved.
   </footer>
 
-  <!-- Add the Google Identity Services library -->
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="script.js"></script>
 </body>
