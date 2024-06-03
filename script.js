@@ -123,3 +123,41 @@ function closeVideoModal() {
   modal.style.display = 'none';
   videoFrame.src = ''; // Resetting the video frame source
 }
+
+let isDescriptionExpanded = false;
+
+function toggleDescription() {
+    const videoDescription = document.getElementById('videoDescription');
+    const readMoreBtn = document.getElementById('readMoreBtn');
+    
+    if (!isDescriptionExpanded) {
+        videoDescription.style.maxHeight = 'none'; // Expand the description
+        readMoreBtn.textContent = 'Read Less'; // Change button text
+    } else {
+        videoDescription.style.maxHeight = '80px'; // Collapse the description
+        readMoreBtn.textContent = 'Read More'; // Change button text
+    }
+    
+    isDescriptionExpanded = !isDescriptionExpanded; // Toggle flag
+}
+
+function openVideo(videoId, title, description) {
+    const modal = document.getElementById('videoModal');
+    const videoFrame = document.getElementById('videoFrame');
+    const videoTitle = document.getElementById('videoTitle');
+    const videoDescription = document.getElementById('videoDescription');
+    const readMoreBtn = document.getElementById('readMoreBtn');
+
+    videoTitle.textContent = title;
+    videoDescription.textContent = description;
+    videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+    modal.style.display = 'block';
+    
+    // Check if the description is longer than the max height
+    if (videoDescription.scrollHeight > videoDescription.clientHeight) {
+        readMoreBtn.style.display = 'block'; // Display Read More button
+    } else {
+        readMoreBtn.style.display = 'none'; // Hide Read More button if not needed
+    }
+}
+
