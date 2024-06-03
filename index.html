@@ -3,60 +3,60 @@
 <head>
     <title>YouTube Search</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="91688335727-pjd58hv414s20092ekslgect9hkh811d.apps.googleusercontent.com">
 </head>
 <body>
-    <div id="datetime-container">
-        <span class="time-label">Time:</span> <span id="datetime"></span>
-    </div>
+<div id="datetime-container">
+    <span class="time-label">Time:</span> <span id="datetime"></span>
+</div>
 
-    <div class="tabs">
-        <button onclick="openTab('Home')">Home</button>
-        <button onclick="openNewTab('my_science_world.html')">My Science World</button>
-        <button onclick="openNewTab('about_me.html')">About Me</button>
-        <button onclick="openNewTab('index.html')">New tab +</button>
-    </div>
+<div class="tabs">
+    <button onclick="openTab('Home')">Home</button>
+    <button onclick="openNewTab('my_science_world.html')">My Science World</button>
+    <button onclick="openNewTab('about_me.html')">About Me</button>
+    <button onclick="openNewTab('index.html')">New tab +</button> <!-- New tab button -->
+</div>
 
-    <h1>YouTube Video Search</h1>
+<h1>YouTube Video Search</h1>
 
-    <!-- Google Sign-In Button -->
-    <div class="auth-buttons">
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <a href="#" onclick="signOut();" class="sign-out-button">Sign out</a>
-    </div>
+<!-- View Counter -->
+<div id="view-counter">
+    Page views: <span id="view-count">0</span>
+</div>
 
-    <!-- View Counter -->
-    <div id="view-counter">
-        Page views: <span id="view-count">0</span>
-    </div>
+<div class="motivational-quote">
+    "The only way to do great work is to love what you do."
+</div>
 
-    <div class="motivational-quote">
-        "The only way to do great work is to love what you do."
-    </div>
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Enter search keywords">
+    <button onclick="searchYouTube()">Search 🔍</button>
+</div>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Enter search keywords">
-        <button onclick="searchYouTube()">Search 🔍</button>
-    </div>
+<div class="signin-container">
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <button class="signout-button" onclick="signOut();">Sign out</button>
+</div>
 
-    <div class="productive-links">
-        <span class="productive-links-heading">Productive Links:</span>
-        <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
-        <a href="https://www.ncert.nic.in" target="_blank">NCERT</a>
-        <a href="https://learningcorner.epaper.thehindu.com/" target="_blank">The Hindu Learning Corner</a>
-        <a href="https://thehindu.com/" target="_blank">The Hindu 📖</a>
-        <a href="https://epaper.thehindu.com/" target="_blank">The Hindu Epaper 🗞️</a>
-    </div>
+<div class="productive-links">
+    <span class="productive-links-heading">Productive Links:</span>
+    <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
+    <a href="https://www.ncert.nic.in" target="_blank">NCERT</a>
+    <a href="https://learningcorner.epaper.thehindu.com/" target="_blank">The Hindu Learning Corner</a>
+    <a href="https://thehindu.com/" target="_blank">The Hindu 📖</a>
+    <a href="https://epaper.thehindu.com/" target="_blank">The Hindu Epaper 🗞️</a>
+</div>
 
-    <div id="searchResults">
-        <!-- Search results will be displayed here -->
-    </div>
+<div id="searchResults">
+    <!-- Search results will be displayed here -->
+</div>
 
-    <footer>
-        &copy; 2023 R.M.Dharungopesh & Chat Gpt🧑‍💻. All rights reserved.
-    </footer>
+<footer>
+    &copy; 2023 R.M.Dharungopesh & Chat Gpt🧑‍💻. All rights reserved.
+</footer>
 
-    <script src="script.js"></script>
+<!-- Add the Google Sign-In library -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="script.js"></script>
 </body>
 </html>
