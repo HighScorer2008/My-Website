@@ -246,6 +246,7 @@ footer {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px); /* Add blur effect */
 }
 
 .modal-content {
@@ -292,6 +293,7 @@ footer {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px); /* Add blur effect */
 }
 
 .modal-content {
