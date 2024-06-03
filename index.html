@@ -14,9 +14,9 @@
   <div id="videoModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h2 id="videoTitle" class="video-title"></h2> <!-- Title of the video -->
-        <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe> <!-- Video iframe -->
-        <p id="videoDescription" class="video-description"></p> <!-- Description of the video -->
+        <h2 id="videoTitle" class="video-title"></h2>
+        <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+        <p id="videoDescription" class="video-description"></p>
     </div>
   </div>
 
@@ -24,7 +24,7 @@
     <button onclick="openTab('Home')">Home</button>
     <button onclick="openNewTab('my_science_world.html')">My Science World</button>
     <button onclick="openNewTab('about_me.html')">About Me</button>
-    <button onclick="openNewTab('index.html')">New tab +</button> <!-- New tab button -->
+    <button onclick="openNewTab('index.html')">New tab +</button>
   </div>
 
   <h1>YouTube Video Search</h1>
@@ -44,21 +44,21 @@
 
   <div class="signin-container">
     <div id="g_id_onload"
-       data-client_id="91688335727-pjd58hv414s20092ekslgect9hkh811d.apps.googleusercontent.com"
-       data-context="signin"
-       data-ux_mode="popup"
-       data-login_uri="https://highscorer2008.github.io/My-Website/"
-       data-itp_support="true">
+         data-client_id="91688335727-pjd58hv414s20092ekslgect9hkh811d.apps.googleusercontent.com"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="onSignIn"
+         data-itp_support="true">
     </div>
-
     <div class="g_id_signin"
-       data-type="standard"
-       data-shape="pill"
-       data-theme="filled_black"
-       data-text="signin_with"
-       data-size="large"
-       data-logo_alignment="left">
+         data-type="standard"
+         data-shape="pill"
+         data-theme="filled_black"
+         data-text="signin_with"
+         data-size="large"
+         data-logo_alignment="left">
     </div>
+    <button class="signout-button" onclick="signOut();">Sign out</button>
   </div>
 
   <div class="productive-links">
