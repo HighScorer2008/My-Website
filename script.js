@@ -104,3 +104,39 @@ function showMore(element) {
         showMoreSpan.textContent = ' Read more';
     }
 }
+
+// Your existing JavaScript code
+
+// Function to display the user's profile picture
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  var profilePicContainer = document.getElementById('profilePicContainer');
+  var profilePic = document.createElement('img');
+  profilePic.src = profile.getImageUrl();
+  profilePic.alt = 'Profile Picture';
+  profilePicContainer.appendChild(profilePic);
+}
+
+// Function to open the modal and display the YouTube video
+function openModal(videoId) {
+  var modal = document.getElementById('videoModal');
+  var videoFrame = document.getElementById('videoFrame');
+  videoFrame.src = 'https://www.youtube.com/embed/' + videoId;
+  modal.style.display = 'block';
+}
+
+// Function to close the modal
+function closeModal() {
+  var modal = document.getElementById('videoModal');
+  var videoFrame = document.getElementById('videoFrame');
+  videoFrame.src = '';
+  modal.style.display = 'none';
+}
+
+// Event listener to close the modal when clicking outside of it
+window.onclick = function(event) {
+  var modal = document.getElementById('videoModal');
+  if (event.target == modal) {
+    closeModal();
+  }
+}
