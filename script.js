@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Clock
     function updateClock() {
         const now = new Date();
-              const hours = now.getHours().toString().padStart(2, '0');
+        const hours = now.getHours().toString().padStart(2, '0');
         const minutes = now.getMinutes().toString().padStart(2, '0');
         const seconds = now.getSeconds().toString().padStart(2, '0');
         const datetimeElement = document.getElementById('datetime');
@@ -51,7 +51,7 @@ async function searchYouTube() {
         }
 
         const data = await response.json();
-        
+       
         console.log('API response:', data);
 
         // Clear previous results
@@ -106,14 +106,11 @@ function showMore(element) {
 }
 
 function openVideo(videoId) {
-    const newWindow = window.open(`https://www.youtube.com/embed/${videoId}`, '_blank', 'width=560,height=315');
-    if (newWindow) {
-        newWindow.focus();
-    } else {
-        alert('Your browser blocked the video popup. Please check your browser settings.');
-    }
+    const modal = document.getElementById('videoModal');
+    const videoFrame = document.getElementById('videoFrame');
+    videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+    modal.style.display = 'block';
 }
-
 
 function closeVideoModal() {
     const modal = document.getElementById('videoModal');
@@ -127,4 +124,3 @@ function signOut() {
     // Replace this with your sign-out implementation
     console.log('Signing out...');
 }
-
