@@ -21,8 +21,10 @@
     <h1>YouTube Video Search</h1>
 
     <!-- Google Sign-In Button -->
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    <a href="#" onclick="signOut();">Sign out</a>
+    <div class="auth-buttons">
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <a href="#" onclick="signOut();" class="sign-out-button">Sign out</a>
+    </div>
 
     <!-- View Counter -->
     <div id="view-counter">
