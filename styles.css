@@ -16,14 +16,7 @@ h1 {
     background-color: #ff0000;
     color: #fff;
     padding: 20px;
-    margin-bottom: 0; /* Change margin-bottom to 0 */
-}
-
-/* Add the following CSS to improve the popup video container's resolution */
-.modal-content iframe {
-    border-radius: 8px;
-    width: 100%; /* Adjust width to fill the container */
-    height: 100%; /* Adjust height to fill the container */
+    margin-bottom: 20px;
 }
 
 #youtube-logo {
@@ -142,7 +135,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-   text-align: center;
+    text-align: center;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -182,7 +175,7 @@ footer {
 }
 
 #datetime-container {
-    /* Remove position: absolute; */
+    position: absolute;
     top: 7px; /* Adjusted to move the clock another 1mm up */
     right: 10px;
     font-size: 17.5px; /* 3% smaller than the original size */
@@ -202,7 +195,8 @@ footer {
 .productive-links {
     text-align: center;
     font-size: 14px;
-    margin-bottom: 20px;
+    margin-bottom:
+20px;
     border: 2px solid #ccc;
     border-radius: 8px;
     padding: 10px;
@@ -249,3 +243,48 @@ footer {
     padding: 10px 20px;
 }
 
+/* Add styles for video modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 5px
+;
+    right: 5px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .modal {
+        padding: 10px;
+    }
+}
