@@ -51,7 +51,7 @@ async function searchYouTube() {
         }
 
         const data = await response.json();
-       
+
         console.log('API response:', data);
 
         // Clear previous results
@@ -71,7 +71,6 @@ async function searchYouTube() {
 
             const videoElement = document.createElement('div');
             videoElement.classList.add('video-result');
-
             // Truncate long descriptions
             let shortDescription = description;
             let viewMore = '';
@@ -82,7 +81,7 @@ async function searchYouTube() {
 
             videoElement.innerHTML = `
                 <h3>${title}</h3>
-                <button onclick="openVideo('${videoId}')">Play Video</button>
+                <button onclick="openVideo('${videoId}', '${title}')">Play Video</button>
                 <div class="description">${shortDescription}${viewMore}</div>
             `;
             searchResults.appendChild(videoElement);
@@ -114,7 +113,6 @@ function openVideo(videoId, title) {
     modal.style.display = 'block';
 }
 
-
 function closeVideoModal() {
     const modal = document.getElementById('videoModal');
     const videoFrame = document.getElementById('videoFrame');
@@ -127,3 +125,5 @@ function signOut() {
     // Replace this with your sign-out implementation
     console.log('Signing out...');
 }
+
+           
