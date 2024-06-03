@@ -30,7 +30,7 @@ function openNewTab() {
 async function searchYouTube() {
     const searchInput = document.getElementById('searchInput').value;
     const searchResults = document.getElementById('searchResults');
-    const apiKey = 'AIzaSyB0kFtzqbuBldEKQHb8GQ34l5lD7KlpV60'; // Replace with your new YouTube Data API key
+    const apiKey = 'AIzaSyB0kFtzqbuBldEKQHb8GQ34l5lD7KlpV60'; // Replace with your YouTube Data API key
 
     console.log('Search input:', searchInput);
 
@@ -82,7 +82,7 @@ async function searchYouTube() {
 
             videoElement.innerHTML = `
                 <h3>${title}</h3>
-                <iframe width="300" height="200" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+                <button onclick="openVideo('${videoId}')">Play Video</button>
                 <div class="description">${shortDescription}${viewMore}</div>
             `;
             searchResults.appendChild(videoElement);
@@ -105,74 +105,22 @@ function showMore(element) {
     }
 }
 
-// Your existing JavaScript code
-
-// Function to display the user's profile picture
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  var profilePicContainer = document.getElementById('profilePicContainer');
-  var profilePic = document.createElement('img');
-  profilePic.src = profile.getImageUrl();
-  profilePic.alt = 'Profile Picture';
-  profilePicContainer.appendChild(profilePic);
+function openVideo(videoId) {
+    const modal = document.getElementById('videoModal');
+    const videoFrame = document.getElementById('videoFrame');
+    videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+    modal.style.display = 'block';
 }
 
-// Function to open the modal and display the YouTube video
-function openModal(videoId) {
-  var modal = document.getElementById('videoModal');
-  var videoFrame = document.getElementById('videoFrame');
-  videoFrame.src = 'https://www.youtube.com/embed/' + videoId;
-  modal.style.display = 'block';
+function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const videoFrame = document.getElementById('videoFrame');
+    videoFrame.src = '';
+    modal.style.display = 'none';
 }
 
-// Function to close the modal
-function closeModal() {
-  var modal = document.getElementById('videoModal');
-  var videoFrame = document.getElementById('videoFrame');
-  videoFrame.src = '';
-  modal.style.display = 'none';
-}
-
-// Event listener to close the modal when clicking outside of it
-window.onclick = function(event) {
-  var modal = document.getElementById('videoModal');
-  if (event.target == modal) {
-    closeModal();
-  }
-}
-
-// Your existing JavaScript code
-
-// Function to display the user's profile picture
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  var profilePicContainer = document.getElementById('profilePicContainer');
-  var profilePic = document.createElement('img');
-  profilePic.src = profile.getImageUrl();
-  profilePic.alt = 'Profile Picture';
-  profilePicContainer.appendChild(profilePic);
-}
-
-// Function to open the modal and display the YouTube video
-function openModal(videoId) {
-  var modal = document.getElementById('videoModal');
-  var videoFrame = document.getElementById('videoFrame');
-  videoFrame.src = 'https://www.youtube.com/embed/' + videoId;
-  modal.style.display = 'block';
-}
-
-// Function to close the modal
-function closeModal() {
-  var modal = document.getElementById('videoModal');
-  var videoFrame = document.getElementById('videoFrame');
-  videoFrame.src = '';
-  modal.style.display = 'none';
-}
-
-// Event listener to close the modal when clicking outside of it
-window.onclick = function(event) {
-  var modal = document.getElementById('videoModal');
-  if (event.target == modal) {
-    closeModal();
-  }
+// Sign out function
+function signOut() {
+    // Replace this with your sign-out implementation
+    console.log('Signing out...');
 }
