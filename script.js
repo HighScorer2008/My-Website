@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function openTab(tabName) {
-  // Implement tab opening logic here
+  if (tabName === 'Home') {
+    window.location.reload(); // Reload the current page
+  }
 }
 
 function openNewTab(url) {
@@ -28,7 +30,7 @@ function openNewTab(url) {
 async function searchYouTube() {
   const searchInput = document.getElementById('searchInput').value;
   const searchResults = document.getElementById('searchResults');
-  const apiKey = 'AIzaSyB0wNgUCd9rV46I2Ai6INs59XhxEhVFdTI';
+  const apiKey = 'AIzaSyB0wNgUCd9rV46I2Ai6INs59XhxEhVFdTI'; // Replace with your actual API key
 
   if (searchInput.trim() === '') {
     alert('Please enter search keywords');
@@ -64,9 +66,9 @@ async function searchYouTube() {
       const videoElement = document.createElement('div');
       videoElement.className = 'video-result';
       videoElement.innerHTML = `
-        <img src="${thumbnailUrl}" alt="Video Thumbnail">
+        <img src="${thumbnailUrl}" alt="${title}">
         <h3>${title}</h3>
-        <button onclick="openVideo('${videoId}', '${title}', \`${description.replace(/'/g, "\\'").replace(/"/g, '&quot;')}\`)">Watch Video</button>
+        <button onclick="openVideo('${videoId}', '${title}', '${description}')">Watch Video</button>
       `;
       searchResults.appendChild(videoElement);
     });
@@ -76,43 +78,22 @@ async function searchYouTube() {
   }
 }
 
-let isDescriptionExpanded = false;
-
-function toggleDescription() {
-  const videoDescription = document.getElementById('videoDescription');
-  const readMoreBtn = document.getElementById('readMoreBtn');
-  
-  if (!isDescriptionExpanded) {
-    videoDescription.style.maxHeight = 'none'; // Expand the description
-    readMoreBtn.textContent = 'Read Less'; // Change button text
-  } else {
-    videoDescription.style.maxHeight = '80px'; // Collapse the description
-    readMoreBtn.textContent = 'Read More'; // Change button text
-  }
-  
-  isDescriptionExpanded = !isDescriptionExpanded; // Toggle flag
-}
-
 function openVideo(videoId, title, description) {
   const modal = document.getElementById('videoModal');
   const videoFrame = document.getElementById('videoFrame');
   const videoTitle = document.getElementById('videoTitle');
   const videoDescription = document.getElementById('videoDescription');
-  const readMoreBtn = document.getElementById('readMoreBtn');
+  const readMore = document.getElementById('readMore');
 
   videoTitle.textContent = title;
   videoDescription.textContent = description;
   videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
   modal.style.display = 'block';
-  
-  videoDescription.style.maxHeight = '80px'; // Reset description height
-  isDescriptionExpanded = false; // Reset flag
 
-  // Check if the description is longer than the max height
   if (videoDescription.scrollHeight > videoDescription.clientHeight) {
-    readMoreBtn.style.display = 'block'; // Display Read More button
+    readMore.style.display = 'inline';
   } else {
-    readMoreBtn.style.display = 'none'; // Hide Read More button if not needed
+    readMore.style.display = 'none';
   }
 }
 
@@ -121,6 +102,13 @@ function closeVideoModal() {
   const videoFrame = document.getElementById('videoFrame');
   modal.style.display = 'none';
   videoFrame.src = '';
+}
+
+function expandDescription() {
+  const videoDescription = document.getElementById('videoDescription');
+  const readMore = document.getElementById('readMore');
+  videoDescription.classList.toggle('show-more');
+  readMore.textContent = videoDescription.classList.contains('show-more') ? 'Read Less' : 'Read More';
 }
 
 function onSignIn(googleUser) {
