@@ -313,3 +313,24 @@ footer {
 #readMoreBtn:hover {
     background-color: #0056b3;
 }
+
+/* Existing CSS styles */
+
+.video-description.show-more {
+  max-height: none; /* Allow the description to expand */
+  overflow: visible; /* Show the entire content */
+}
+
+/* New styles for 'Read More' and 'Read Less' */
+.read-more {
+  color: #007BFF;
+  cursor: pointer;
+  display: block;
+  margin-top: 10px;
+  text-align: right;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
