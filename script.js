@@ -28,7 +28,7 @@ function openNewTab(url) {
 async function searchYouTube() {
   const searchInput = document.getElementById('searchInput').value;
   const searchResults = document.getElementById('searchResults');
-  const apiKey = 'AIzaSyB0kFtzqbuBldEKQHb8GQ34l5lD7KlpV60';
+  const apiKey = 'AIzaSyB0wNgUCd9rV46I2Ai6INs59XhxEhVFdTI';
 
   if (searchInput.trim() === '') {
     alert('Please enter search keywords');
