@@ -59,12 +59,14 @@ async function searchYouTube() {
       const videoId = item.id.videoId;
       const title = item.snippet.title;
       const description = item.snippet.description;
+      const thumbnailUrl = item.snippet.thumbnails.default.url;
 
       const videoElement = document.createElement('div');
       videoElement.className = 'video-result';
       videoElement.innerHTML = `
+        <img src="${thumbnailUrl}" alt="Video Thumbnail">
         <h3>${title}</h3>
-        <button onclick="openVideo('${videoId}', '${title}', '${description.replace(/'/g, "\\'").replace(/"/g, "&quot;")}')">Watch Video</button>
+        <button onclick="openVideo('${videoId}', '${title}', \`${description.replace(/'/g, "\\'").replace(/"/g, '&quot;')}\`)">Watch Video</button>
       `;
       searchResults.appendChild(videoElement);
     });
@@ -77,55 +79,58 @@ async function searchYouTube() {
 let isDescriptionExpanded = false;
 
 function toggleDescription() {
-    const videoDescription = document.getElementById('videoDescription');
-    const readMoreBtn = document.getElementById('readMoreBtn');
-    
-    if (!isDescriptionExpanded) {
-        videoDescription.style.maxHeight = 'none'; // Expand the description
-        readMoreBtn.textContent = 'Read Less'; // Change button text
-    } else {
-        videoDescription.style.maxHeight = '80px'; // Collapse the description
-        readMoreBtn.textContent = 'Read More'; // Change button text
-    }
-    
-    isDescriptionExpanded = !isDescriptionExpanded; // Toggle flag
+  const videoDescription = document.getElementById('videoDescription');
+  const readMoreBtn = document.getElementById('readMoreBtn');
+  
+  if (!isDescriptionExpanded) {
+    videoDescription.style.maxHeight = 'none'; // Expand the description
+    readMoreBtn.textContent = 'Read Less'; // Change button text
+  } else {
+    videoDescription.style.maxHeight = '80px'; // Collapse the description
+    readMoreBtn.textContent = 'Read More'; // Change button text
+  }
+  
+  isDescriptionExpanded = !isDescriptionExpanded; // Toggle flag
 }
 
 function openVideo(videoId, title, description) {
-    const modal = document.getElementById('videoModal');
-    const videoFrame = document.getElementById('videoFrame');
-    const videoTitle = document.getElementById('videoTitle');
-    const videoDescription = document.getElementById('videoDescription');
-    const readMoreBtn = document.getElementById('readMoreBtn');
+  const modal = document.getElementById('videoModal');
+  const videoFrame = document.getElementById('videoFrame');
+  const videoTitle = document.getElementById('videoTitle');
+  const videoDescription = document.getElementById('videoDescription');
+  const readMoreBtn = document.getElementById('readMoreBtn');
 
-    videoTitle.textContent = title;
-    videoDescription.textContent = description;
-    videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
-    modal.style.display = 'block';
-    
-    // Check if the description is longer than the max height
-    if (videoDescription.scrollHeight > videoDescription.clientHeight) {
-        readMoreBtn.style.display = 'block'; // Display Read More button
-    } else {
-        readMoreBtn.style.display = 'none'; // Hide Read More button if not needed
-    }
+  videoTitle.textContent = title;
+  videoDescription.textContent = description;
+  videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+  modal.style.display = 'block';
+  
+  videoDescription.style.maxHeight = '80px'; // Reset description height
+  isDescriptionExpanded = false; // Reset flag
+
+  // Check if the description is longer than the max height
+  if (videoDescription.scrollHeight > videoDescription.clientHeight) {
+    readMoreBtn.style.display = 'block'; // Display Read More button
+  } else {
+    readMoreBtn.style.display = 'none'; // Hide Read More button if not needed
+  }
 }
 
 function closeVideoModal() {
-    const modal = document.getElementById('videoModal');
-    const videoFrame = document.getElementById('videoFrame');
-    modal.style.display = 'none';
-    videoFrame.src = '';
+  const modal = document.getElementById('videoModal');
+  const videoFrame = document.getElementById('videoFrame');
+  modal.style.display = 'none';
+  videoFrame.src = '';
 }
 
 function onSignIn(googleUser) {
-    const profile = googleUser.getBasicProfile();
-    document.getElementById('profilePicContainer').innerHTML = `<img src="${profile.getImageUrl()}" alt="Profile Picture">`;
+  const profile = googleUser.getBasicProfile();
+  document.getElementById('profilePicContainer').innerHTML = `<img src="${profile.getImageUrl()}" alt="Profile Picture">`;
 }
 
 function signOut() {
-    const auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(() => {
-        document.getElementById('profilePicContainer').innerHTML = '';
-    });
+  const auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(() => {
+    document.getElementById('profilePicContainer').innerHTML = '';
+  });
 }
