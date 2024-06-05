@@ -68,23 +68,34 @@ h1 {
 
 input[type="text"] {
     flex: 1;
-    padding: 10px;
+    padding: 12px 20px; /* Increased padding for a modern look */
     margin: 0 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 25px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth transition */
+    outline: none; /* Remove default outline */
+}
+
+input[type="text"]:focus {
+    border-color: #ff0000; /* Highlight border on focus */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow on focus */
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     background-color: #ff0000;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px; /* Rounded corners */
     cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth transition */
 }
 
 button:hover {
     background-color: #cc0000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
 }
 
 .motivational-quote {
@@ -143,17 +154,20 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.video-result img {
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
 .video-result:hover {
     transform: translateY(-5px);
 }
 
-.video-result iframe {
+.video-result img {
+    width: 100%;
+    max-width: 100%;
     border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.video-result h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
 .description {
@@ -181,20 +195,20 @@ footer {
 
 #datetime-container {
     position: absolute;
-    top: 7px; /* Adjusted to move the clock another 1mm up */
+    top: 7px;
     right: 10px;
-    font-size: 17.5px; /* 3% smaller than the original size */
+    font-size: 17.5px;
     font-weight: bold;
-    color: #fff; /* Change font color to white */
-    background-color: #000; /* Change background color to black */
+    color: #fff;
+    background-color: #000;
     padding: 5px 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    transition: transform 0.3s ease-in-out; /* Add transition for smooth animation */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
 #datetime-container:hover {
-    transform: scale(1.1); /* Increase size on hover */
+    transform: scale(1.1);
 }
 
 .productive-links {
@@ -296,20 +310,4 @@ footer {
 .video-description {
     text-align: justify; /* Justify text */
     margin-top: 20px; /* Add space between video and description */
-    transition: max-height 0.3s ease;
-}
-
-#readMoreBtn {
-    display: none; /* Initially hidden */
-    margin-top: 10px;
-    padding: 5px 10px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#readMoreBtn:hover {
-    background-color: #0056b3;
 }
