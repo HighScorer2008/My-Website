@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>YouTube Search</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <meta name="google-signin-client_id" content="91688335727-pjd58hv414s20092ekslgect9hkh811d.apps.googleusercontent.com">
 </head>
 <body>
   <div id="datetime-container">
@@ -13,16 +12,16 @@
 
   <div id="videoModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeVideoModal()">&times;</span>
-      <h2 id="videoTitle" class="video-title"></h2>
-      <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
-      <p id="videoDescription" class="video-description"></p>
-      <span id="readMore" class="read-more" onclick="expandDescription()">Read More</span>
+        <span class="close">&times;</span>
+        <h2 id="videoTitle" class="video-title"></h2>
+        <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+        <p id="videoDescription" class="video-description"></p>
+        <span class="read-more" onclick="toggleDescription()">Read More</span>
     </div>
   </div>
 
   <div class="tabs">
-    <button onclick="openTab('Home')">Home</button>
+    <button onclick="window.location.reload()">Home</button>
     <button onclick="openNewTab('my_science_world.html')">My Science World</button>
     <button onclick="openNewTab('about_me.html')">About Me</button>
     <button onclick="openNewTab('index.html')">New tab +</button>
@@ -43,15 +42,6 @@
     <button onclick="searchYouTube()">Search 🔍</button>
   </div>
 
-  <div class="g_id_signin"
-    data-type="standard"
-    data-shape="pill"
-    data-theme="filled_black"
-    data-text="signin_with"
-    data-size="large"
-    data-logo_alignment="left">
-  </div>
-
   <div class="productive-links">
     <span class="productive-links-heading">Productive Links:</span>
     <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
@@ -62,13 +52,11 @@
   </div>
 
   <div id="searchResults">
-    <!-- Search results will be displayed here -->
   </div>
 
   <footer>
     &copy; 2023 R.M.Dharungopesh & Chat Gpt🧑‍💻. All rights reserved.
   </footer>
-
 
   <script src="script.js"></script>
 </body>
