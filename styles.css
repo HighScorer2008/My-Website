@@ -412,7 +412,7 @@ h1 {
 }
 
 input[type="text"] {
-  width: 80%; /* Increase the width of the search bar */
+  width: 20%; /* Increase the width of the search bar */
   padding: 10px;
   margin: 0 10px;
   border: 1px solid #ccc;
@@ -422,7 +422,7 @@ input[type="text"] {
 }
 
 button {
-  padding: 5px 10px; /* Decrease the size of the search button */
+  padding: 20px 40px; /* Decrease the size of the search button */
   background-color: #ff0000;
   color: #fff;
   border: none;
