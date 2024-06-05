@@ -71,39 +71,35 @@ input[type="text"] {
     padding: 12px 20px; /* Increased padding for a modern look */
     margin: 0 10px;
     border: 1px solid #ccc;
-    border-radius: 25px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: all 0.3s ease; /* Smooth transition */
-    outline: none; /* Remove default outline */
+    border-radius: 4px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
 }
 
 input[type="text"]:focus {
-    border-color: #ff0000; /* Highlight border on focus */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow on focus */
+    border-color: #007BFF;
+    outline: none;
 }
 
 button {
-    padding: 12px 20px;
     background-color: #ff0000;
     color: #fff;
     border: none;
-    border-radius: 25px; /* Rounded corners */
+    padding: 12px 20px;
+    border-radius: 4px;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: all 0.3s ease; /* Smooth transition */
+    transition: background-color 0.3s ease;
+    font-size: 16px; /* Increased font size for a modern look */
 }
 
 button:hover {
-    background-color: #cc0000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+    background-color: #e60000;
 }
 
 .motivational-quote {
     text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'Segoe Script', cursive, sans-serif;
-    color: #555;
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
@@ -159,15 +155,8 @@ button:hover {
 }
 
 .video-result img {
-    width: 100%;
-    max-width: 100%;
     border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.video-result h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
+    max-width: 100%;
 }
 
 .description {
@@ -195,20 +184,20 @@ footer {
 
 #datetime-container {
     position: absolute;
-    top: 7px;
+    top: 7px; /* Adjusted to move the clock another 1mm up */
     right: 10px;
-    font-size: 17.5px;
+    font-size: 17.5px; /* 3% smaller than the original size */
     font-weight: bold;
-    color: #fff;
-    background-color: #000;
+    color: #fff; /* Change font color to white */
+    background-color: #000; /* Change background color to black */
     padding: 5px 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: transform 0.3s ease-in-out; /* Add transition for smooth animation */
 }
 
 #datetime-container:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Increase size on hover */
 }
 
 .productive-links {
