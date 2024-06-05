@@ -15,6 +15,19 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setInterval(updateClock, 1000);
   updateClock();
+
+  var modal = document.getElementById("videoModal");
+  var span = document.getElementsByClassName("close")[0];
+  
+  span.onclick = function() {
+    closeVideoModal();
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      closeVideoModal();
+    }
+  }
 });
 
 function openTab(tabName) {
@@ -109,16 +122,4 @@ function expandDescription() {
   const readMore = document.getElementById('readMore');
   videoDescription.classList.toggle('show-more');
   readMore.textContent = videoDescription.classList.contains('show-more') ? 'Read Less' : 'Read More';
-}
-
-function onSignIn(googleUser) {
-  const profile = googleUser.getBasicProfile();
-  document.getElementById('profilePicContainer').innerHTML = `<img src="${profile.getImageUrl()}" alt="Profile Picture">`;
-}
-
-function signOut() {
-  const auth2 = gapi.auth2.getAuthInstance();
-  auth2.signOut().then(() => {
-    document.getElementById('profilePicContainer').innerHTML = '';
-  });
 }
