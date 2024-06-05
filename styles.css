@@ -346,3 +346,146 @@ align-items: stretch; / Stretch items to fill container */
 }
 
 }
+
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  background-color: #ff0000;
+  color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#youtube-logo {
+  width: 100px;
+  height: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tabs button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.tabs button.active {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 80%; /* Increase the width of the search bar */
+  padding: 10px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Rounded border */
+  outline: none; /* Remove outline */
+  transition: border-color 0.3s ease; /* Smooth transition */
+}
+
+button {
+  padding: 5px 10px; /* Decrease the size of the search button */
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #cc0000; /* Darker background color on hover */
+}
+
+.motivational-quote {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Segoe Script', cursive, sans-serif;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.productive-links {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.productive-links-heading {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.productive-links a {
+  margin: 0 10px;
+  font-size: 12px;
+  text-decoration: none;
+  color: blue;
+  transition: transform 0.3s ease; /* Add transition for smooth animation */
+}
+
+.productive-links a:hover {
+  transform: scale(1.1); /* Increase size on hover */
+}
+
+#searchResults {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* ... rest of your styles */
+/* Your existing CSS code here */
+
+/* New CSS code to add hover effects */
+
+button:hover {
+  background-color: #cc0000; /* Darker background color on hover */
+}
+
+/* You can add more styles here */
