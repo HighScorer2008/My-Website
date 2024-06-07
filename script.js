@@ -88,7 +88,6 @@ function checkVideoAvailability(videoId, title, description) {
 }
 
 // Replace the openVideo function with the updated one
-
 function openVideo(videoId, title, description) {
   const modal = document.getElementById('videoModal');
   const videoFrame = document.getElementById('videoFrame');
@@ -101,12 +100,17 @@ function openVideo(videoId, title, description) {
   videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
   modal.style.display = 'block';
 
+  // Adjust iframe dimensions for better aspect ratio
+  videoFrame.width = 560;
+  videoFrame.height = 315;
+
   if (videoDescription.scrollHeight > videoDescription.clientHeight) {
     readMore.style.display = 'inline';
   } else {
     readMore.style.display = 'none';
   }
 }
+
 
 
 function closeVideoModal() {
