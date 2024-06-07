@@ -14,7 +14,9 @@
     <div class="modal-content">
       <span class="close" onclick="closeVideoModal()">&times;</span>
       <h2 id="videoTitle" class="video-title"></h2>
-      <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+      <div class="video-frame-container">
+        <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+      </div>
       <p id="videoDescription" class="video-description"></p>
       <span id="readMore" class="read-more" onclick="expandDescription()">Read More</span>
     </div>
@@ -46,7 +48,7 @@
 
   <div class="search-container">
     <input type="text" id="searchInput" placeholder="Enter search keywords">
-    <button onclick="searchYouTube()">Search 🔍</button>
+    <button class="search-button" onclick="searchYouTube()">Search 🔍</button>
   </div>
 
   <div class="productive-links">
