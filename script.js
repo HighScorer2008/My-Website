@@ -15,6 +15,19 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setInterval(updateClock, 1000);
   updateClock();
+
+  var modal = document.getElementById("videoModal");
+  var span = document.getElementsByClassName("close")[0];
+  
+  span.onclick = function() {
+    closeVideoModal();
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      closeVideoModal();
+    }
+  }
 });
 
 function openTab(tabName) {
@@ -30,7 +43,7 @@ function openNewTab(url) {
 async function searchYouTube() {
   const searchInput = document.getElementById('searchInput').value;
   const searchResults = document.getElementById('searchResults');
-  const apiKey = 'AIzaSyB0wNgUCd9rV46I2Ai6INs59XhxEhVFdTI'; // Replace with your actual API key
+  const apiKey = 'AIzaSyB0kFtzqbuBldEKQHb8GQ34l5lD7KlpV60'; // Replace with your actual API key
 
   if (searchInput.trim() === '') {
     alert('Please enter search keywords');
@@ -68,7 +81,7 @@ async function searchYouTube() {
       videoElement.innerHTML = `
         <img src="${thumbnailUrl}" alt="${title}">
         <h3>${title}</h3>
-        <button class="watch-video-button" onclick="checkVideoAvailability('${videoId}', '${title}', '${description}')">Watch Video</button>
+        <button onclick="openVideo('${videoId}', '${title}', '${description}')">Watch Video</button>
       `;
       searchResults.appendChild(videoElement);
     });
@@ -78,16 +91,6 @@ async function searchYouTube() {
   }
 }
 
-function checkVideoAvailability(videoId, title, description) {
-  const isVideoAvailable = Math.random() > 0.5; // Replace with actual condition
-  if (!isVideoAvailable) {
-    showErrorModal();
-  } else {
-    openVideo(videoId, title, description);
-  }
-}
-
-// Replace the openVideo function with the updated one
 function openVideo(videoId, title, description) {
   const modal = document.getElementById('videoModal');
   const videoFrame = document.getElementById('videoFrame');
@@ -121,23 +124,11 @@ function openVideo(videoId, title, description) {
   }
 }
 
-
-
 function closeVideoModal() {
   const modal = document.getElementById('videoModal');
   const videoFrame = document.getElementById('videoFrame');
   modal.style.display = 'none';
   videoFrame.src = '';
-}
-
-function showErrorModal() {
-  const modal = document.getElementById('errorModal');
-  modal.style.display = 'block';
-}
-
-function closeErrorModal() {
-  const modal = document.getElementById('errorModal');
-  modal.style.display = 'none';
 }
 
 function expandDescription() {
