@@ -106,10 +106,8 @@ function openVideo(videoId, title, description) {
   } else {
     readMore.style.display = 'none';
   }
-
-  // Set iframe height dynamically based on content
-  videoFrame.style.height = videoDescription.scrollHeight + 'px';
 }
+
 
 function closeVideoModal() {
   const modal = document.getElementById('videoModal');
