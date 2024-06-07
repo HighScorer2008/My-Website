@@ -81,13 +81,22 @@ async function searchYouTube() {
       videoElement.innerHTML = `
         <img src="${thumbnailUrl}" alt="${title}">
         <h3>${title}</h3>
-        <button onclick="openVideo('${videoId}', '${title}', '${description}')">Watch Video</button>
+        <button class="watch-video-button" onclick="checkVideoAvailability('${videoId}', '${title}', '${description}')">Watch Video</button>
       `;
       searchResults.appendChild(videoElement);
     });
   } catch (error) {
     console.error('Error fetching YouTube data:', error);
     alert(error.message);
+  }
+}
+
+function checkVideoAvailability(videoId, title, description) {
+  const isVideoAvailable = Math.random() > 0.5; // Replace with actual condition
+  if (!isVideoAvailable) {
+    showErrorModal();
+  } else {
+    openVideo(videoId, title, description);
   }
 }
 
@@ -115,6 +124,16 @@ function closeVideoModal() {
   const videoFrame = document.getElementById('videoFrame');
   modal.style.display = 'none';
   videoFrame.src = '';
+}
+
+function showErrorModal() {
+  const modal = document.getElementById('errorModal');
+  modal.style.display = 'block';
+}
+
+function closeErrorModal() {
+  const modal = document.getElementById('errorModal');
+  modal.style.display = 'none';
 }
 
 function expandDescription() {
