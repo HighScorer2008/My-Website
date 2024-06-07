@@ -87,6 +87,8 @@ function checkVideoAvailability(videoId, title, description) {
   }
 }
 
+// Replace the openVideo function with the updated one
+
 function openVideo(videoId, title, description) {
   const modal = document.getElementById('videoModal');
   const videoFrame = document.getElementById('videoFrame');
@@ -104,6 +106,9 @@ function openVideo(videoId, title, description) {
   } else {
     readMore.style.display = 'none';
   }
+
+  // Set iframe height dynamically based on content
+  videoFrame.style.height = videoDescription.scrollHeight + 'px';
 }
 
 function closeVideoModal() {
