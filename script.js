@@ -43,7 +43,7 @@ function openNewTab(url) {
 async function searchYouTube() {
   const searchInput = document.getElementById('searchInput').value;
   const searchResults = document.getElementById('searchResults');
-  const apiKey = 'AIzaSyB0kFtzqbuBldEKQHb8GQ34l5lD7KlpV60'; // Replace with your actual API key
+  const apiKey = 'AIzaSyB0wNgUCd9rV46I2Ai6INs59XhxEhVFdTI'; // Replace with your actual API key
 
   if (searchInput.trim() === '') {
     alert('Please enter search keywords');
