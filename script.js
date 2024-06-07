@@ -15,19 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   setInterval(updateClock, 1000);
   updateClock();
-
-  var modal = document.getElementById("videoModal");
-  var span = document.getElementsByClassName("close")[0];
-  
-  span.onclick = function() {
-    closeVideoModal();
-  }
-
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      closeVideoModal();
-    }
-  }
 });
 
 function openTab(tabName) {
