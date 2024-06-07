@@ -66,32 +66,32 @@ h1 {
     margin-bottom: 20px;
 }
 
-input[type="text"] {
+.search-container input[type="text"] {
     flex: 1;
     padding: 10px;
     margin: 0 10px;
     border: 1px solid #ccc;
-    border-radius: 20px; /* Rounded border */
-    outline: none; /* Remove outline */
-    transition: border-color 0.3s ease; /* Smooth transition */
+    border-radius: 20px;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus {
-    border-color: #ff0000; /* Change border color on focus */
+.search-container input[type="text"]:focus {
+    border-color: #ff0000;
 }
 
-button {
+.search-container button {
     padding: 10px 20px;
     background-color: #ff0000;
     color: #fff;
     border: none;
-    border-radius: 20px; /* Rounded corners */
+    border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition */
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #cc0000; /* Darker background color on hover */
+.search-container button:hover {
+    background-color: #cc0000;
 }
 
 .motivational-quote {
@@ -111,6 +111,7 @@ button:hover {
     border-radius: 8px;
     padding: 10px;
     background-color: #f0f0f0;
+    animation: boxAnimation 1s ease-in-out;
 }
 
 .productive-links-heading {
@@ -124,11 +125,22 @@ button:hover {
     font-size: 12px;
     text-decoration: none;
     color: blue;
-    transition: transform 0.3s ease; /* Add transition for smooth animation */
+    transition: transform 0.3s ease;
 }
 
 .productive-links a:hover {
-    transform: scale(1.1); /* Increase size on hover */
+    transform: scale(1.1);
+}
+
+@keyframes boxAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 #searchResults {
@@ -183,63 +195,20 @@ footer {
 
 #datetime-container {
     position: absolute;
-    top: 7px; /* Adjusted to move the clock another 1mm up */
+    top: 7px;
     right: 10px;
-    font-size: 17.5px; /* 3% smaller than the original size */
+    font-size: 17.5px;
     font-weight: bold;
-    color: #fff; /* Change font color to white */
-    background-color: #000; /* Change background color to black */
+    color: #fff;
+    background-color: #000;
     padding: 5px 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    transition: transform 0.3s ease-in-out; /* Add transition for smooth animation */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
 #datetime-container:hover {
-    transform: scale(1.1); /* Increase size on hover */
-}
-
-.productive-links {
-    text-align: center;
-    font-size: 14px;
-    margin-bottom: 20px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: #f0f0f0;
-    animation-name: boxAnimation;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-}
-
-@keyframes boxAnimation {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.productive-links:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-}
-
-.productive-links a {
-    margin: 0 10px;
-    font-size: 12px;
-    text-decoration: none;
-    color: blue;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.productive-links a:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
-    border-color: #007BFF; /* Change border color on hover */
+    transform: scale(1.1);
 }
 
 /* Modal styles */
@@ -253,239 +222,65 @@ footer {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px); /* Add blur effect */
+    backdrop-filter: blur(8px);
 }
 
 .modal-content {
-background-color: #fff;
-margin: 10% auto;
-padding: 20px;
-border: 1px solid #888;
-width: 80%;
-max-width: 800px;
-border-radius: 8px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .close {
-color: #aaa;
-float: right;
-font-size: 28px;
-font-weight: bold;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-.close
-,
-.close
-{
-color: black;
-text-decoration: none;
-cursor: pointer;
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 #videoFrame {
-display: block;
-margin: 20px auto; /* Add margin */
-width: 100%;
-height: 315px;
-border: none;
-border-radius: 8px;
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    height: 315px;
+    border: none;
+    border-radius: 8px;
 }
 
 .video-title {
-text-align: center; /* Center align title /
-margin-bottom: 10px; / Add space between title and video */
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .video-description {
-text-align: justify; /* Justify text /
-margin-top: 20px; / Add space between video and description */
+    text-align: justify;
+    margin-top: 20px;
 }
 
-#searchInput {
-border-radius: 20px; /* Rounded border /
-padding: 10px; / Increase padding /
-border: 2px solid #ccc; / Add border /
-transition: border-color 0.3s ease; / Smooth transition /
-width: 70%; / Adjust width */
-}
-
-#searchInput
-{
-border-color: #ff0000; /* Change border color on focus */
-}
-
-.search-container button {border-radius: 20px; /* Rounded corners /
-padding: 10px 20px; / Increase padding /
-background-color: #ff0000; / Red background color /
-color: #fff; / White text color /
-border: none; / Remove border /
-cursor: pointer; / Add cursor pointer /
-transition: background-color 0.3s ease; / Smooth transition */
-}
-
-.search-container button
-{
-background-color: #cc0000; /* Darker background color on hover */
-}
-
-/* Add media query for responsiveness /
+/* Add media query for responsiveness */
 @media (max-width: 768px) {
-.search-container {
-flex-direction: column; / Stack items vertically /
-align-items: stretch; / Stretch items to fill container */
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-container input[type="text"] {
+        width: 100%;
+        margin: 10px 0;
+    }
+    .search-container button {
+        width: 100%;
+        margin: 10px 0;
+    }
 }
-#searchInput {
-    width: 100%; /* Full width on small screens */
-    margin: 10px 0; /* Add margin */
-}
-
-.search-container button {
-    width: 100%; /* Full width on on small screens */
-    margin: 10px 0; /* Add margin */
-}
-
-}
-
-/* Reset default margin and padding */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #fff;
-  color: #333;
-}
-
-h1 {
-  text-align: center;
-  background-color: #ff0000;
-  color: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-#youtube-logo {
-  width: 100px;
-  height: auto;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.tabs {
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.tabs button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-  transition: background-color 0.3s ease;
-}
-
-.tabs button.active {
-  background-color: rgba(255, 0, 0, 0.5);
-}
-
-.search-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-input[type="text"] {
-  width: 20%; /* Increase the width of the search bar */
-  padding: 10px;
-  margin: 0 10px;
-  border: 1px solid #ccc;
-  border-radius: 20px; /* Rounded border */
-  outline: none; /* Remove outline */
-  transition: border-color 0.3s ease; /* Smooth transition */
-}
-
-button {
-  padding: 20px 40px; /* Decrease the size of the search button */
-  background-color: #ff0000;
-  color: #fff;
-  border: none;
-  border-radius: 20px; /* Rounded corners */
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #cc0000; /* Darker background color on hover */
-}
-
-.motivational-quote {
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  font-family: 'Segoe Script', cursive, sans-serif;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-.productive-links {
-  text-align: center;
-  font-size: 14px;
-  margin-bottom: 20px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  background-color: #f0f0f0;
-}
-
-.productive-links-heading {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.productive-links a {
-  margin: 0 10px;
-  font-size: 12px;
-  text-decoration: none;
-  color: blue;
-  transition: transform 0.3s ease; /* Add transition for smooth animation */
-}
-
-.productive-links a:hover {
-  transform: scale(1.1); /* Increase size on hover */
-}
-
-#searchResults {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-/* ... rest of your styles */
-/* Your existing CSS code here */
-
-/* New CSS code to add hover effects */
-
-button:hover {
-  background-color: #cc0000; /* Darker background color on hover */
-}
-
-/* You can add more styles here */
