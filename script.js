@@ -95,18 +95,28 @@ function openVideo(videoId, title, description) {
   const videoDescription = document.getElementById('videoDescription');
   const readMore = document.getElementById('readMore');
 
-  videoTitle.textContent = title;
-  videoDescription.textContent = description;
-  videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
-  modal.style.display = 'block';
+  if (videoId) {
+    videoTitle.textContent = title;
+    videoDescription.textContent = description;
+    videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+    modal.style.display = 'block';
 
-  // Adjust iframe dimensions for better aspect ratio
-  videoFrame.width = 560;
-  videoFrame.height = 315;
+    // Adjust iframe dimensions for better aspect ratio
+    videoFrame.width = 560;
+    videoFrame.height = 315;
 
-  if (videoDescription.scrollHeight > videoDescription.clientHeight) {
-    readMore.style.display = 'inline';
+    if (videoDescription.scrollHeight > videoDescription.clientHeight) {
+      readMore.style.display = 'inline';
+    } else {
+      readMore.style.display = 'none';
+    }
   } else {
+    videoTitle.textContent = 'Video Not Available';
+    videoDescription.textContent = 'The video you are trying to watch is not available.';
+    videoFrame.src = ''; // Clear the src attribute to prevent any previous video from playing
+    modal.style.display = 'block';
+
+    // Hide the Read More link
     readMore.style.display = 'none';
   }
 }
