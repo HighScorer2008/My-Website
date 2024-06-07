@@ -12,11 +12,18 @@
 
   <div id="videoModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="videoTitle" class="video-title"></h2>
-        <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
-        <p id="videoDescription" class="video-description"></p>
-        <span class="read-more" onclick="toggleDescription()">Read More</span>
+      <span class="close" onclick="closeVideoModal()">&times;</span>
+      <h2 id="videoTitle" class="video-title"></h2>
+      <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+      <p id="videoDescription" class="video-description"></p>
+      <span id="readMore" class="read-more" onclick="expandDescription()">Read More</span>
+    </div>
+  </div>
+
+  <div id="errorModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeErrorModal()">&times;</span>
+      <p>The Video which you are trying to watch is not available - R.M.DGP</p>
     </div>
   </div>
 
