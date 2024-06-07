@@ -7,13 +7,13 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #fff;
+    background-color: #f0f0f0;
     color: #333;
 }
 
 h1 {
     text-align: center;
-    background-color: #ff0000;
+    background-color: #007BFF;
     color: #fff;
     padding: 20px;
     margin-bottom: 20px;
@@ -29,14 +29,14 @@ h1 {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: white;
+    background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .tabs {
     display: flex;
     justify-content: center;
-    background-color: white;
+    background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -52,11 +52,11 @@ h1 {
 }
 
 .tabs button:hover {
-    background-color: rgba(255, 0, 0, 0.2);
+    background-color: rgba(0, 123, 255, 0.2);
 }
 
 .tabs button.active {
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: rgba(0, 123, 255, 0.5);
 }
 
 .search-container {
@@ -77,12 +77,12 @@ h1 {
 }
 
 .search-container input[type="text"]:focus {
-    border-color: #ff0000;
+    border-color: #007BFF;
 }
 
 .search-container button {
     padding: 10px 20px;
-    background-color: #ff0000;
+    background-color: #007BFF;
     color: #fff;
     border: none;
     border-radius: 20px;
@@ -91,7 +91,7 @@ h1 {
 }
 
 .search-container button:hover {
-    background-color: #cc0000;
+    background-color: #0056b3;
 }
 
 .motivational-quote {
@@ -110,7 +110,7 @@ h1 {
     border: 2px solid #ccc;
     border-radius: 8px;
     padding: 10px;
-    background-color: #f0f0f0;
+    background-color: #fff;
     animation: boxAnimation 1s ease-in-out;
 }
 
@@ -124,7 +124,7 @@ h1 {
     margin: 0 10px;
     font-size: 12px;
     text-decoration: none;
-    color: blue;
+    color: #007BFF;
     transition: transform 0.3s ease;
 }
 
@@ -160,6 +160,7 @@ h1 {
     border-radius: 8px;
     transition: transform 0.3s ease-in-out;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
 .video-result:hover {
@@ -168,6 +169,23 @@ h1 {
 
 .video-result iframe {
     border-radius: 8px;
+}
+
+.watch-video-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #007BFF, #0056b3);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.watch-video-button:hover {
+    background: linear-gradient(45deg, #0056b3, #007BFF);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
 }
 
 .description {
@@ -188,7 +206,7 @@ h1 {
 
 footer {
     text-align: center;
-    background-color: #ff0000;
+    background-color: #007BFF;
     color: #fff;
     padding: 10px;
 }
