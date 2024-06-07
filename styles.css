@@ -402,3 +402,37 @@ footer {
         margin: 10px 0;
     }
 }
+
+/* Add this CSS to styles.css */
+
+/* Modal popup video styling */
+#videoModal .modal-content {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio for video */
+}
+
+#videoModal .modal-content iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Watch Video button styling */
+.watch-video-button {
+  padding: 15px 30px; /* Adjust button padding */
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 30px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.watch-video-button:hover {
+  background-color: #cc0000; /* Darker background color on hover */
+  transform: scale(1.05); /* Scale up on hover */
+}
+
