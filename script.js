@@ -97,17 +97,24 @@ function openVideo(videoId, title, description) {
     const videoTitle = document.getElementById('videoTitle');
     const videoDescription = document.getElementById('videoDescription');
     const readMore = document.getElementById('readMore');
+    const errorMessage = document.getElementById('errorMessage');
 
     videoTitle.textContent = title;
     videoDescription.textContent = description;
     videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
     modal.style.display = 'block';
+    errorMessage.style.display = 'none';
 
     if (videoDescription.scrollHeight > videoDescription.clientHeight) {
         readMore.style.display = 'inline';
     } else {
         readMore.style.display = 'none';
     }
+
+    videoFrame.onerror = function() {
+        videoFrame.style.display = 'none';
+        errorMessage.style.display = 'block';
+    };
 }
 
 function closeVideoModal() {
@@ -115,6 +122,8 @@ function closeVideoModal() {
     const videoFrame = document.getElementById('videoFrame');
     modal.style.display = 'none';
     videoFrame.src = '';
+    videoFrame.style.display = 'block';
+    document.getElementById('errorMessage').style.display = 'none';
 }
 
 function expandDescription() {
