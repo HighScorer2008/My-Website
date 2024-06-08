@@ -342,19 +342,22 @@ footer {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px); /* Add blur effect */
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
     background-color: #fff;
-    margin: 10% auto;
+    margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 800px;
-    border-radius: 12px;
+    max-width: 600px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.5s ease-in-out;
+    position: relative;
+    text-align: center; /* Center-align content */
 }
 
 .close {
@@ -362,77 +365,84 @@ footer {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
+#videoFrame {
+    width: 100%;
+    height: auto;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
 .video-title {
-    text-align: center;
-    margin-bottom: 10px;
+    text-align: center; /* Center align title */
+    margin-bottom: 10px; /* Add space between title and video */
     font-size: 20px;
     font-weight: bold;
-    color: #333;
 }
 
 .video-description {
-    text-align: justify;
+    text-align: justify; /* Justify text */
+    margin-top: 20px; /* Add space between video and description */
+    max-height: 100px; /* Limit height */
+    overflow: hidden; /* Hide overflow */
+    position: relative;
+}
+
+.read-more {
+    color: #007BFF;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.show-more {
+    display: block;
+    max-height: none;
+}
+
+.modal-error {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
     margin-top: 20px;
+}
+
+/* Watch Video button */
+.video-result button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     font-size: 16px;
-    line-height: 1.5;
-    color: #555;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Add media query for responsiveness */
-@media (max-width: 768px) {
-    .search-container {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .search-container input[type="text"] {
-        width: 100%;
-        margin: 10px 0;
-    }
-    .search-container button {
-        width: 100%;
-        margin: 10px 0;
-    }
+.video-result button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-/* Add this CSS to styles.css */
-
-/* Modal popup video styling */
-#videoModal .modal-content {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio for video */
+/* Add some hover animations */
+.video-result:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-#videoModal .modal-content iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* Watch Video button styling */
-.watch-video-button {
-  padding: 15px 30px; /* Adjust button padding */
-  background-color: #ff0000;
-  color: #fff;
-  border: none;
-  border-radius: 30px; /* Rounded corners */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.watch-video-button:hover {
-  background-color: #cc0000; /* Darker background color on hover */
-  transform: scale(1.05); /* Scale up on hover */
-}
 
