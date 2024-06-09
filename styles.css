@@ -339,7 +339,7 @@ transform: scale(1.05);
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 9999; /* Set a high z-index value to ensure it covers all other elements */
     left: 0;
     top: 0;
     width: 100%;
@@ -361,7 +361,9 @@ transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: relative;
     text-align: center;
+    z-index: 10000; /* Set a higher z-index value than the modal background */
 }
+
 
 
 /* Time container */
