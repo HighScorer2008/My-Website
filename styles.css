@@ -92,10 +92,32 @@ h1 {
     border-radius: 8px;
     margin-bottom: 20px;
     animation: slideInRight 1s ease-in-out;
-    position: relative;
-    z-index: 1;
-    margin-top: -50px; /* Adjust to align tabs with the heading */
 }
+
+.tabs button {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 15px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Add vertical bars */
+.tabs button:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 50%;
+    background-color: #ddd; /* Adjust as needed */
+}
+
 
 @keyframes slideInRight {
     0% {
