@@ -347,11 +347,11 @@ transform: scale(1.05);
     overflow: auto;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+    background-color: rgba(0, 0, 0, 0.5); /* Translucent black background */
 }
 
 .modal-content {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    background-color: rgba(255, 255, 255, 0.9); /* Opaque semi-transparent white background */
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
@@ -363,6 +363,7 @@ transform: scale(1.05);
     text-align: center;
     z-index: 10000; /* Set a higher z-index value than the modal background */
 }
+
 
 
 
