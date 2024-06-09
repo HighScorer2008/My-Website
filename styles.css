@@ -353,8 +353,10 @@ transform: scale(1.05);
     padding: 5px 10px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it's above other elements */
     transition: transform 0.3s ease-in-out;
 }
+
 
 
 .close {
