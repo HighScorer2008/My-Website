@@ -399,3 +399,12 @@ z-index: 1;
 {
 transform: rotate(360deg);
 }
+footer {
+    text-align: center;
+    background: linear-gradient(45deg, #ff6f61, #de4452);
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
