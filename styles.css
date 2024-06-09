@@ -418,3 +418,20 @@ h1 {
 .tabs button:hover {
     background-color: rgba(255, 111, 97, 0.2); /* Change the hover background color */
 }
+
+/* Add vertical bars between tabs */
+.tabs button {
+    position: relative; /* Set position to relative */
+}
+
+.tabs button:not(:last-child)::after {
+    content: ""; /* Add content */
+    position: absolute; /* Set position to absolute */
+    top: 50%; /* Position at the vertical center */
+    right: 0; /* Position to the right of the button */
+    transform: translateY(-50%); /* Adjust vertical alignment */
+    width: 1px; /* Set width of the vertical bar */
+    height: 80%; /* Set height of the vertical bar */
+    background-color: rgba(255, 111, 97, 0.5); /* Color of the vertical bar */
+}
+
