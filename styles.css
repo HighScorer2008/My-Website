@@ -22,7 +22,7 @@ h1 {
     border-radius: 8px;
     animation: fadeInDown 1s ease-in-out;
     position: relative;
-    z-index: 1;
+    overflow: hidden;
 }
 
 @keyframes fadeInDown {
@@ -50,8 +50,6 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     animation: slideInLeft 1s ease-in-out;
-    position: relative;
-    z-index: 1;
 }
 
 @keyframes slideInLeft {
@@ -78,17 +76,6 @@ h1 {
     z-index: 1;
 }
 
-@keyframes slideInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 .tabs button {
     background-color: transparent;
     border: none;
@@ -99,6 +86,12 @@ h1 {
     color: #555;
     transition: background-color 0.3s ease, color 0.3s ease;
     position: relative;
+}
+
+.tabs button:not(:last-child):after {
+    content: "|";
+    margin: 0 10px;
+    color: #aaa;
 }
 
 .tabs button:hover {
@@ -112,15 +105,6 @@ h1 {
     border-radius: 8px;
 }
 
-.tabs button:not(:last-child)::after {
-    content: '|';
-    position: absolute;
-    right: -10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #ff6f61;
-}
-
 /* Search Bar */
 .search-container {
     display: flex;
@@ -128,8 +112,6 @@ h1 {
     justify-content: center;
     margin-bottom: 20px;
     animation: fadeInUp 1s ease-in-out;
-    position: relative;
-    z-index: 1;
 }
 
 @keyframes fadeInUp {
@@ -185,8 +167,6 @@ h1 {
     background-color: #ffffff;
     animation: boxAnimation 1s ease-in-out;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 1;
 }
 
 .productive-links-heading {
@@ -226,8 +206,6 @@ h1 {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
-    position: relative;
-    z-index: 1;
 }
 
 /* Video Result */
@@ -240,11 +218,9 @@ h1 {
     border: 1px solid #ddd;
     border-radius: 12px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0,    0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
     animation: zoomIn 1s ease-in-out;
-    position: relative;
-    z-index: 1;
 }
 
 @keyframes zoomIn {
@@ -264,170 +240,169 @@ h1 {
 }
 
 .video-result iframe {
-    border-radius: 12px;
-    margin-bottom: 15px;
+border-radius: 12px;
+margin-bottom: 15px;
+width: 100%;
 }
 
 .watch-video-button {
-    margin-top: 10px;
-    padding: 12px 25px;
-    background: linear-gradient(45deg, #007BFF, #0056b3);
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    text-transform: uppercase;
-    font-weight: bold;
-    position: relative;
-    z-index: 1;
+margin-top: 10px;
+padding: 12px 25px;
+background: linear-gradient(45deg, #007BFF, #0056b3);
+color: #fff;
+border: none;
+border-radius: 25px;
+cursor: pointer;
+transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+text-transform: uppercase;
+font-weight: bold;
 }
 
-.watch-video-button:hover {
-    background: linear-gradient(45deg, #0056b3, #007BFF);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+.watch-video-button
+{
+background: linear-gradient(45deg, #0056b3, #007BFF);
+transform: translateY(-3px);
+box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
 }
 
 .description {
-    max-height: 80px;
-    overflow: hidden;
-    position: relative;
+max-height: 80px;
+overflow: hidden;
+position: relative;
 }
 
 .read-more {
-    color: #007BFF;
-    cursor: pointer;
-    display: none;
+color: #007BFF;
+cursor: pointer;
+display: none;
 }
 
 .show-more {
-    display: block;
+display: block;
 }
 
 footer {
-    text-align: center;
-    background: linear-gradient(45deg, #ff6f61, #de4452);
-    color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 1;
+text-align: center;
+background: linear-gradient(45deg, #ff6f61, #de4452);
+color: #fff;
+padding: 15px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+margin-top: 20px;
 }
 
 /* Date Time Container */
 #datetime-container {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 17.5px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #000;
-    padding: 5px 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+position: absolute;
+top: 10px;
+right: 10px;
+font-size: 17.5px;
+font-weight: bold;
+color: #fff;
+background-color: #000;
+padding: 5px 10px;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease-in-out;
 }
 
-#datetime-container:hover {
-    transform: scale(1.1);
+#datetime-container
+{
+transform: scale(1.1);
 }
 
-/* Modal styles */
+/* Modal styles /
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px); /* Add blur effect */
-    justify-content: center;
-    align-items: center;
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0, 0, 0, 0.4);
+backdrop-filter: blur(8px); / Add blur effect */
+justify-content: center;
+align-items: center;
 }
 
 .modal-content {
-    background-color: #fff;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
-    text-align: center; /* Center-align content */
-    position: relative;
-    z-index: 2;
+background-color: #fff;
+margin: auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
+max-width: 600px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+position: relative;
+text-align: center; /* Center-align content */
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    cursor: pointer;
-    z-index: 3;
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+position: absolute;
+right: 20px;
+top: 10px;
+cursor: pointer;
 }
 
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+.close
+,
+.close
+{
+color: #000;
+text-decoration: none;
+cursor: pointer;
 }
 
 #videoFrame {
-    width: 100%;
-    height: auto;
-    border: none;
-    border-radius: 8px;
-    margin-top: 10px;
+width: 100%;
+height: auto;
+border: none;
+border-radius: 8px;
+margin-top: 10px;
 }
 
 .video-title {
-    text-align: center; /* Center align title */
-    margin-bottom: 10px; /* Add space between title and video */
-    font-size: 20px;
-    font-weight: bold;
+text-align: center; /* Center align title /
+margin-bottom: 10px; / Add space between title and video */
+font-size: 20px;
+font-weight: bold;
+color: #333;
 }
 
 .video-description {
-    text-align: justify; /* Justify text */
-    margin-top: 20px; /* Add space between video and description */
-    max-height: 100px; /* Limit height */
-    overflow: hidden; /* Hide overflow */
-    position: relative;
+text-align: justify; /* Justify text /
+margin-top: 20px; / Add space between video and description /
+max-height: 100px; / Limit height /
+overflow: hidden; / Hide overflow */
+position: relative;
+color: #555;
 }
 
 .read-more {
-    color: #007BFF;
-    cursor: pointer;
-    display: inline-block;
-    margin-top: 10px;
+color: #007BFF;
+cursor: pointer;
+display: inline-block;
+margin-top: 10px;
 }
 
 .show-more {
-    display: block;
-    max-height: none;
+display: block;
+max-height: none;
 }
 
 .modal-error {
-    color: red;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 20px;
-    position: relative;
-    z-index: 2;
+color: red;
+font-size: 18px;
+font-weight: bold;
+text-align: center;
+margin-top: 20px;
 }
 
 /* Watch Video button */
@@ -441,8 +416,6 @@ footer {
     font-size: 16px;
     margin-top: 10px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    position: relative;
-    z-index: 1;
 }
 
 .video-result button:hover {
@@ -472,4 +445,3 @@ footer {
 #easter-egg:hover {
     transform: rotate(360deg);
 }
-
