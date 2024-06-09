@@ -317,7 +317,7 @@ transform: scale(1.05);
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1000; /* Increase the z-index value */
     left: 0;
     top: 0;
     width: 100%;
