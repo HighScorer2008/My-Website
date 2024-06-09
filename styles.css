@@ -24,6 +24,29 @@ h1 {
     position: relative;
     z-index: 1;
 }
+.motivational-quote {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Segoe Script', cursive;
+    color: #fff;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgba(255, 111, 97, 0.8); /* Adjust background color and opacity */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 
 @keyframes fadeInDown {
     0% {
