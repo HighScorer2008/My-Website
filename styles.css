@@ -359,11 +359,15 @@ transform: scale(1.05);
     max-width: 600px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
+    position: absolute; /* Set position to absolute */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto; /* Center horizontally and vertically */
     text-align: center;
     z-index: 10000; /* Set a higher z-index value than the modal background */
 }
-
 
 
 
