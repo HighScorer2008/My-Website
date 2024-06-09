@@ -123,3 +123,33 @@ function expandDescription() {
     videoDescription.classList.toggle('show-more');
     readMore.textContent = videoDescription.classList.contains('show-more') ? 'Read Less' : 'Read More';
 }
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    let konamiIndex = 0;
+
+    document.addEventListener('keydown', function(e) {
+        if (e.keyCode === konamiCode[konamiIndex]) {
+            konamiIndex++;
+            if (konamiIndex === konamiCode.length) {
+                showKonamiMessage();
+                konamiIndex = 0;
+            }
+        } else {
+            konamiIndex = 0;
+        }
+    });
+
+    function showKonamiMessage() {
+        const message = document.createElement('div');
+        message.className = 'konami-message';
+        message.innerHTML = 'You have discovered the Konami Code!';
+        document.body.appendChild(message);
+
+        setTimeout(() => {
+            message.remove();
+        }, 5000);
+    }
+});
+
