@@ -6,6 +6,8 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+  <h1>YouTube Video Search</h1> <!-- Move the heading above the tabs -->
+
   <div id="datetime-container">
     <span class="time-label">Time:</span> <span id="datetime"></span>
   </div>
@@ -14,10 +16,9 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2 id="videoTitle" class="video-title"></h2>
-        <iframe id="videoFrame" frameborder="0" allowfullscreen></iframe>
+        <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
         <p id="videoDescription" class="video-description"></p>
-        <span class="read-more" id="readMore" onclick="expandDescription()">Read More</span>
-        <p class="modal-error" id="errorMessage" style="display: none;">The Video which you are trying to watch is not available - R.M.DGP</p>
+        <span class="read-more" onclick="toggleDescription()">Read More</span>
     </div>
   </div>
 
@@ -27,8 +28,6 @@
     <button onclick="openNewTab('about_me.html')">About Me</button>
     <button onclick="openNewTab('index.html')">New tab +</button>
   </div>
-
-  <h1>YouTube Video Search</h1>
 
   <div id="view-counter">
     Page views: <span id="view-count">0</span>
