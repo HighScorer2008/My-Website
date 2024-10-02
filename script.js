@@ -153,19 +153,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 });
 
-document.getElementById('submitComment').addEventListener('click', function() {
-    const commentText = document.getElementById('commentBox').value;
-    
-    if (commentText.trim() !== "") {
-        const commentDiv = document.createElement('div');
-        commentDiv.classList.add('comment');
-        commentDiv.textContent = commentText;
-        
-        document.getElementById('commentDisplay').appendChild(commentDiv);
-        document.getElementById('commentBox').value = ''; // Clear the input
-    } else {
-        alert('Please enter a comment');
-    }
-});
-
 
