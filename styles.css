@@ -477,3 +477,120 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Comment Section */
+.comment-section {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 800px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.comment-section h2 {
+    font-size: 24px;
+    color: #ff6f61;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Comment Form */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    resize: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+.comment-form textarea:focus {
+    border-color: #ff6f61;
+    box-shadow: 0 4px 8px rgba(255, 111, 97, 0.2);
+}
+
+.comment-form button {
+    margin-top: 10px;
+    padding: 12px 25px;
+    background: linear-gradient(45deg, #ff6f61, #de4452);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+.comment-form button:hover {
+    background: linear-gradient(45deg, #de4452, #ff6f61);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(255, 111, 97, 0.3);
+}
+
+/* Comments List */
+#comments-list {
+    margin-top: 20px;
+}
+
+.comment-item {
+    background-color: #f7f9fc;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    animation: zoomIn 0.5s ease-in-out;
+}
+
+.comment-item p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.comment-item .comment-author {
+    font-weight: bold;
+    color: #ff6f61;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.comment-item .comment-time {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Comment section animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
