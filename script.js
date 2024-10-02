@@ -153,32 +153,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 });
 
-document.getElementById('submit-comment').addEventListener('click', function() {
-    const commentInput = document.getElementById('comment-input');
-    const commentsList = document.getElementById('comments-list');
-
-    if (commentInput.value.trim() !== '') {
-        const commentItem = document.createElement('div');
-        commentItem.classList.add('comment-item');
+document.getElementById('submitComment').addEventListener('click', function() {
+    const commentText = document.getElementById('commentBox').value;
+    
+    if (commentText.trim() !== "") {
+        const commentDiv = document.createElement('div');
+        commentDiv.classList.add('comment');
+        commentDiv.textContent = commentText;
         
-        const commentText = document.createElement('p');
-        commentText.textContent = commentInput.value;
-
-        const commentAuthor = document.createElement('div');
-        commentAuthor.classList.add('comment-author');
-        commentAuthor.textContent = 'Anonymous';
-
-        const commentTime = document.createElement('div');
-        commentTime.classList.add('comment-time');
-        commentTime.textContent = new Date().toLocaleString();
-
-        commentItem.appendChild(commentAuthor);
-        commentItem.appendChild(commentText);
-        commentItem.appendChild(commentTime);
-        commentsList.appendChild(commentItem);
-
-        // Clear the input after submission
-        commentInput.value = '';
+        document.getElementById('commentDisplay').appendChild(commentDiv);
+        document.getElementById('commentBox').value = ''; // Clear the input
+    } else {
+        alert('Please enter a comment');
     }
 });
 
