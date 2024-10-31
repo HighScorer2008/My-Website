@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var modal = document.getElementById("videoModal");
     var span = document.getElementsByClassName("close")[0];
-    
+
     span.onclick = function() {
         closeVideoModal();
     }
@@ -28,6 +28,13 @@ document.addEventListener('DOMContentLoaded', function() {
             closeVideoModal();
         }
     }
+
+    // Add scroll event to exit fullscreen when user scrolls
+    window.addEventListener('scroll', function() {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        }
+    });
 });
 
 function openTab(tabName) {
@@ -101,7 +108,7 @@ function openVideo(videoId, title, description) {
     videoTitle.textContent = title;
     videoDescription.textContent = description;
     videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
 
     if (videoDescription.scrollHeight > videoDescription.clientHeight) {
         readMore.style.display = 'inline';
@@ -123,7 +130,6 @@ function expandDescription() {
     videoDescription.classList.toggle('show-more');
     readMore.textContent = videoDescription.classList.contains('show-more') ? 'Read Less' : 'Read More';
 }
-
 
 document.addEventListener('DOMContentLoaded', (event) => {
     const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
@@ -152,5 +158,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }, 5000);
     }
 });
-
-
