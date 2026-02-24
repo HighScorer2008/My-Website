@@ -24,6 +24,7 @@ h1 {
     position: relative;
     z-index: 1;
 }
+
 .motivational-quote {
     text-align: center;
     font-size: 20px;
@@ -32,21 +33,11 @@ h1 {
     color: #fff;
     margin-top: 10px;
     padding: 10px;
-    background-color: rgba(255, 111, 97, 0.8); /* Adjust background color and opacity */
+    background-color: rgba(255, 111, 97, 0.8);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1.5s ease-in-out;
 }
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 
 @keyframes fadeInDown {
     0% {
@@ -115,9 +106,8 @@ h1 {
     transform: translateY(-50%);
     width: 1px;
     height: 50%;
-    background-color: #ddd; /* Adjust as needed */
+    background-color: #ddd;
 }
-
 
 @keyframes slideInRight {
     0% {
@@ -128,18 +118,6 @@ h1 {
         opacity: 1;
         transform: translateX(0);
     }
-}
-
-.tabs button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 15px 25px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #555;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    position: relative;
 }
 
 .tabs button:hover {
@@ -224,12 +202,8 @@ h1 {
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 /* Productive Links */
@@ -275,103 +249,162 @@ h1 {
     }
     100% {
         transform: scale(1);
-       opacity: 1;
-}
+        opacity: 1;
+    }
 }
 
 /* Video Results */
 #searchResults {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-gap: 20px;
-padding: 20px;
-position: relative;
-z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .video-result {
-display: flex;
-flex-direction: column;
-align-items: center;
-text-align: center;
-padding: 20px;
-border: 1px solid #ddd;
-border-radius: 12px;
-transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-background-color: #ffffff;
-position: relative;
-z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    position: relative;
+    z-index: 1;
 }
 
-.video-result
-{
-transform: translateY(-5px);
-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.video-result:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .video-result iframe {
-border-radius: 12px;
-margin-bottom: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
 }
 
 .video-result button {
-padding: 10px 20px;
-background-color: #007BFF;
-color: #fff;
-border: none;
-border-radius: 25px;
-cursor: pointer;
-transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
 }
 
 .video-result button:hover {
-background-color: #0056b3;
-transform: translateY(-3px);
+    background-color: #0056b3;
+    transform: translateY(-3px);
 }
 
 /* Modal styles */
 .modal {
-display: none;
-position: fixed;
-z-index: 9999;
-left: 0;
-top: 0;
-width: 100%;
-height: 100%;
-overflow: auto;
-justify-content: center;
-align-items: center;
-background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-background-color: rgba(255, 255, 255, 0.9);
-margin: auto;
-padding: 20px;
-border: 1px solid #888;
-width: 80%;
-max-width: 600px;
-border-radius: 8px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-margin: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.close {
+    color: #aaa;
+    align-self: flex-end;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.video-description {
+    margin-top: 15px;
+    text-align: left;
+    width: 100%;
+    max-height: 60px; /* Adjust as needed */
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.video-description.show-more {
+    max-height: 500px; /* Large enough to fit most descriptions */
+}
+
+.read-more {
+    color: #007BFF;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 14px;
+    align-self: flex-start;
+}
+
+.read-more:hover {
+    text-decoration: underline;
 }
 
 /* Time container */
 #datetime-container {
-position: fixed;
-top: 10px;
-right: 10px;
-font-size: 17.5px;
-font-weight: bold;
-color: #fff;
-background-color: rgba(0, 0, 0, 0.6);
-padding: 5px 10px;
-border-radius: 8px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 17.5px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+/* Konami Message */
+.konami-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    z-index: 10000;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from { bottom: -50px; opacity: 0; }
+    to { bottom: 20px; opacity: 1; }
 }
