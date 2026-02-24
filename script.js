@@ -50,7 +50,7 @@ function openNewTab(url) {
 async function searchYouTube() {
     const searchInput = document.getElementById('searchInput').value;
     const searchResults = document.getElementById('searchResults');
-    const apiKey = 'AIzaSyB0wNgUCd9rV46I2Ai6INs59XhxEhVFdTI'; // ⚠️ Replace with your new, restricted API key
+    const apiKey = 'AIzaSyB0wNgUCd9rV46I2Ai6INs59XhxEhVFdTI'; // ⚠️ Replace with your actual API key
 
     if (searchInput.trim() === '') {
         alert('Please enter search keywords');
@@ -85,16 +85,53 @@ async function searchYouTube() {
 
             const videoElement = document.createElement('div');
             videoElement.className = 'video-result';
+            
+            // Replaced single quotes in description to avoid breaking the onclick function
+            const safeDescription = description.replace(/'/g, "\\'");
+
             videoElement.innerHTML = `
                 <img src="${thumbnailUrl}" alt="${title}">
                 <h3>${title}</h3>
-                <button onclick="openVideo('${videoId}', '${title}', '${description.replace(/'/g, "\\'")}')">Watch Video</button>
+                <div class="button-group">
+                    <button class="preview-btn" onclick="togglePreview(this, '${videoId}')">Preview 👁️</button>
+                    <button class="watch-btn" onclick="openVideo('${videoId}', '${title.replace(/'/g, "\\'")}', '${safeDescription}')">Watch Full</button>
+                </div>
+                <div class="preview-container"></div>
             `;
             searchResults.appendChild(videoElement);
         });
     } catch (error) {
         console.error('Error fetching YouTube data:', error);
         alert(error.message);
+    }
+}
+
+// Function to handle the toggle box animation and inline iframe injection
+function togglePreview(buttonElement, videoId) {
+    const card = buttonElement.closest('.video-result');
+    const previewContainer = card.querySelector('.preview-container');
+    const isExpanded = previewContainer.classList.contains('expanded');
+
+    if (isExpanded) {
+        // Close the preview box
+        previewContainer.classList.remove('expanded');
+        buttonElement.innerHTML = 'Preview 👁️';
+        buttonElement.classList.remove('active');
+        
+        // Remove the iframe after animation finishes so audio stops
+        setTimeout(() => { 
+            previewContainer.innerHTML = ''; 
+        }, 400); 
+    } else {
+        // Open the preview box with muted autoplay
+        previewContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+        
+        setTimeout(() => {
+            previewContainer.classList.add('expanded');
+        }, 10);
+        
+        buttonElement.innerHTML = 'Close ❌';
+        buttonElement.classList.add('active');
     }
 }
 
@@ -107,7 +144,7 @@ function openVideo(videoId, title, description) {
 
     videoTitle.textContent = title;
     videoDescription.textContent = description;
-    videoFrame.src = `https://www.youtube.com/embed/${videoId}`;
+    videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
     modal.style.display = 'flex';
 
     if (videoDescription.scrollHeight > videoDescription.clientHeight) {
@@ -121,7 +158,7 @@ function closeVideoModal() {
     const modal = document.getElementById('videoModal');
     const videoFrame = document.getElementById('videoFrame');
     modal.style.display = 'none';
-    videoFrame.src = '';
+    videoFrame.src = ''; // Stops the video
 }
 
 function expandDescription() {
@@ -150,7 +187,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     function showKonamiMessage() {
         const message = document.createElement('div');
         message.className = 'konami-message';
-        message.innerHTML = 'You have discovered the Konami Code!';
+        message.innerHTML = 'You have discovered the Konami Code! 🎮';
         document.body.appendChild(message);
 
         setTimeout(() => {
