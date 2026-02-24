@@ -6,13 +6,12 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<h1>
+  <h1>
     YouTube Video Search
     <div class="motivational-quote">
         "The only way to do great work is to love what you do."
     </div>
-</h1>
-
+  </h1>
 
   <div id="datetime-container">
     <span class="time-label">Time:</span> <span id="datetime"></span>
@@ -24,7 +23,7 @@
         <h2 id="videoTitle" class="video-title"></h2>
         <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
         <p id="videoDescription" class="video-description"></p>
-        <span class="read-more" onclick="toggleDescription()">Read More</span>
+        <span id="readMore" class="read-more" onclick="expandDescription()">Read More</span>
     </div>
   </div>
 
