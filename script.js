@@ -50,7 +50,7 @@ function openNewTab(url) {
 async function searchYouTube() {
     const searchInput = document.getElementById('searchInput').value;
     const searchResults = document.getElementById('searchResults');
-    const apiKey = 'AIzaSyB0wNgUCd9rV46I2Ai6INs59XhxEhVFdTI'; // Replace with your actual API key
+    const apiKey = 'AIzaSyB0wNgUCd9rV46I2Ai6INs59XhxEhVFdTI'; // ⚠️ Replace with your new, restricted API key
 
     if (searchInput.trim() === '') {
         alert('Please enter search keywords');
@@ -88,7 +88,7 @@ async function searchYouTube() {
             videoElement.innerHTML = `
                 <img src="${thumbnailUrl}" alt="${title}">
                 <h3>${title}</h3>
-                <button onclick="openVideo('${videoId}', '${title}', '${description}')">Watch Video</button>
+                <button onclick="openVideo('${videoId}', '${title}', '${description.replace(/'/g, "\\'")}')">Watch Video</button>
             `;
             searchResults.appendChild(videoElement);
         });
